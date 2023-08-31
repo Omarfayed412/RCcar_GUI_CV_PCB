@@ -20,6 +20,8 @@ int motorspeed = 0;
 int desireddistance = 0;
 int desiredspeed = 0;
 int distance =0;
+unsigned long previousTime = 0;
+float speed = 0.0;
 
 SoftwareSerial bluetoothSerial(2, 3); // RX, TX pins on ATmega8
 
@@ -54,7 +56,7 @@ void loop() {
     distance = measureDistance();
     float currentA = measureCurrentA();
     float voltageA = measureVoltageA();
-    sendSensorData(distance, currentA, voltageA, motorspeed);
+    sendSensorData(distance, currentA, voltageA, speed);
     while ( receivedChar != 'M'|| receivedChar != 'B'|| receivedChar != 'F'|| receivedChar != 'R'|| receivedChar != 'L' || receivedChar != 'S' )
     {
       if (receivedChar == 'K') // indicator that the msg is for distance
@@ -67,14 +69,19 @@ void loop() {
       }
        autonomousControl(distance,desiredspeed);
     }
-    while (receivedChar != 'A'|| receivedChar != 'D'|| receivedChar != 'V')
+    while (receivedChar != 'A'|| receivedChar != 'K'|| receivedChar != 'J')
     {
       manual(receivedChar);
     }
 
   }
-
   indicator(motorspeed); 
+  unsigned long currentTime = millis();
+  unsigned long elapsedTime = currentTime - previousTime;
+  if (elapsedTime >= 1000) {
+    speed = calculateSpeed(distance, elapsedTime);
+    previousTime = currentTime;
+  }
 }
 
 void manual(char command) {  // Process commands received from the GUI
@@ -239,10 +246,10 @@ void sendSensorData(int distance, float currentA, float voltageA, int motorspeed
   bluetoothSerial.print(" Voltage: ");
   bluetoothSerial.print(voltageA);
   bluetoothSerial.print(" V");
-
+  
   bluetoothSerial.print(" Speed :");
   bluetoothSerial.print(motorspeed4);
-  bluetoothSerial.print(" V");
+  bluetoothSerial.print(" m/s ");
   bluetoothSerial.println();
 }
 void indicator(int motorspeed3) // Indicates the motor speed 
@@ -266,7 +273,12 @@ void indicator(int motorspeed3) // Indicates the motor speed
     digitalWrite(blue_pin,HIGH);
   }
 }
-
+float calculateSpeed(int distance, unsigned long elapsedTime) {
+  float timeInSeconds = elapsedTime / 1000.0;  
+  float speed = distance / timeInSeconds;      
+  speed /= 100.0;                              
+  return speed;
+}
 
 
 
