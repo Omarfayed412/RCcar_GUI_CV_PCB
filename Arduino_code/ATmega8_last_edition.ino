@@ -12,6 +12,9 @@
 #define trig_pin 10
 #define echo_pin 11
 #define voltage_pin 12
+#define red_pin 33
+#define green_pin 34
+#define blue_pin 35
 
 int motorspeed = 0;
 int desireddistance = 0;
@@ -34,6 +37,10 @@ void setup() {
   pinMode(trig_pin, OUTPUT);
   pinMode(echo_pin, INPUT);
   pinMode(voltage_pin, INPUT);
+  pinMode(red_pin , OUTPUT);
+  pinMode(green_pin , OUTPUT);
+  pinMode(blue_pin , OUTPUT);
+
 
   Serial.begin(9600);
   bluetoothSerial.begin(9600);
@@ -47,7 +54,7 @@ void loop() {
     distance = measureDistance();
     float currentA = measureCurrentA();
     float voltageA = measureVoltageA();
-    sendSensorData(distance, currentA, voltageA);
+    sendSensorData(distance, currentA, voltageA, motorspeed);
     while ( receivedChar != 'M'|| receivedChar != 'B'|| receivedChar != 'F'|| receivedChar != 'R'|| receivedChar != 'L' || receivedChar != 'S' )
     {
       if (receivedChar == 'K') // indicator that the msg is for distance
@@ -67,7 +74,7 @@ void loop() {
 
   }
 
-
+  indicator(motorspeed); 
 }
 
 void manual(char command) {  // Process commands received from the GUI
@@ -211,9 +218,10 @@ void autonomousControl(int distance2 , int velocity)
   digitalWrite(MOTOR_B_IN1_PIN, HIGH);
   digitalWrite(MOTOR_B_IN2_PIN, LOW);
   analogWrite(MOTOR_B_EN_PIN, right_side);
+  indicator(velocity); 
 }
 
-void sendSensorData(int distance, float currentA, float voltageA) {
+void sendSensorData(int distance, float currentA, float voltageA, int motorspeed4) {
   // Send sensor data to the GUI via Bluetooth serial communication
   bluetoothSerial.print("Distance: ");
   bluetoothSerial.print(distance);
@@ -226,5 +234,34 @@ void sendSensorData(int distance, float currentA, float voltageA) {
   bluetoothSerial.print(" Voltage: ");
   bluetoothSerial.print(voltageA);
   bluetoothSerial.print(" V");
+
+  bluetoothSerial.print(" Speed :");
+  bluetoothSerial.print(motorspeed4);
+  bluetoothSerial.print(" V");
   bluetoothSerial.println();
 }
+void indicator(int motorspeed3) // Indicates the motor speed 
+{
+  if (motorspeed3 <= 80)
+  {
+    digitalWrite(red_pin,HIGH);
+    digitalWrite(green_pin,LOW);
+    digitalWrite(blue_pin,LOW);
+  }
+  else if(motorspeed3 > 80 && motorspeed3 <= 160 )
+  {
+    digitalWrite(red_pin,LOW);
+    digitalWrite(green_pin,HIGH);
+    digitalWrite(blue_pin,LOW);
+  }
+  else if (motorspeed3 >160 && motorspeed3<255)
+  {
+    digitalWrite(red_pin,LOW);
+    digitalWrite(green_pin,LOW);
+    digitalWrite(blue_pin,HIGH);
+  }
+}
+
+
+
+
