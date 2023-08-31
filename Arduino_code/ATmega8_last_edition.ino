@@ -122,6 +122,7 @@ void forward(int motorspeed2) {
   digitalWrite(MOTOR_B_IN1_PIN, HIGH);
   digitalWrite(MOTOR_B_IN2_PIN, LOW);
   analogWrite(MOTOR_B_EN_PIN, motorspeed2);
+  bluetoothSerial.print('F');
 }
 
 void backward(int motorspeed2) {
@@ -133,6 +134,7 @@ void backward(int motorspeed2) {
   digitalWrite(MOTOR_B_IN1_PIN, LOW);
   digitalWrite(MOTOR_B_IN2_PIN, HIGH);
   analogWrite(MOTOR_B_EN_PIN, motorspeed2);
+  bluetoothSerial.print('B');
 }
 
 void left(int motorspeed2) {
@@ -144,6 +146,7 @@ void left(int motorspeed2) {
   digitalWrite(MOTOR_B_IN1_PIN, LOW);
   digitalWrite(MOTOR_B_IN2_PIN, HIGH);
   analogWrite(MOTOR_B_EN_PIN, motorspeed2);
+  bluetoothSerial.print('L');
 }
 
 void right(int motorspeed2) {
@@ -155,6 +158,7 @@ void right(int motorspeed2) {
   digitalWrite(MOTOR_B_IN1_PIN, HIGH);
   digitalWrite(MOTOR_B_IN2_PIN, LOW);
   analogWrite(MOTOR_B_EN_PIN, motorspeed2);
+  bluetoothSerial.print('R');
 }
 
 void stop() {
@@ -166,6 +170,7 @@ void stop() {
   digitalWrite(MOTOR_B_IN1_PIN, LOW);
   digitalWrite(MOTOR_B_IN2_PIN, LOW);
   analogWrite(MOTOR_B_EN_PIN, 0);
+  bluetoothSerial.print('S');
 }
 
 int measureDistance() {
