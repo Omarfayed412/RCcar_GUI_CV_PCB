@@ -12,16 +12,11 @@
 #define trig_pin 10
 #define echo_pin 11
 #define voltage_pin 12
-#define red_pin 33
-#define green_pin 34
-#define blue_pin 35
 
 int motorspeed = 0;
 int desireddistance = 0;
 int desiredspeed = 0;
 int distance =0;
-unsigned long previousTime = 0;
-float speed = 0.0;
 
 SoftwareSerial bluetoothSerial(2, 3); // RX, TX pins on ATmega8
 
@@ -39,10 +34,6 @@ void setup() {
   pinMode(trig_pin, OUTPUT);
   pinMode(echo_pin, INPUT);
   pinMode(voltage_pin, INPUT);
-  pinMode(red_pin , OUTPUT);
-  pinMode(green_pin , OUTPUT);
-  pinMode(blue_pin , OUTPUT);
-
 
   Serial.begin(9600);
   bluetoothSerial.begin(9600);
@@ -56,7 +47,7 @@ void loop() {
     distance = measureDistance();
     float currentA = measureCurrentA();
     float voltageA = measureVoltageA();
-    sendSensorData(distance, currentA, voltageA, speed);
+    sendSensorData(distance, currentA, voltageA);
     while ( receivedChar != 'M'|| receivedChar != 'B'|| receivedChar != 'F'|| receivedChar != 'R'|| receivedChar != 'L' || receivedChar != 'S' )
     {
       if (receivedChar == 'K') // indicator that the msg is for distance
@@ -69,19 +60,14 @@ void loop() {
       }
        autonomousControl(distance,desiredspeed);
     }
-    while (receivedChar != 'A'|| receivedChar != 'K'|| receivedChar != 'J')
+    while (receivedChar != 'A'|| receivedChar != 'D'|| receivedChar != 'V')
     {
       manual(receivedChar);
     }
 
   }
-  indicator(motorspeed); 
-  unsigned long currentTime = millis();
-  unsigned long elapsedTime = currentTime - previousTime;
-  if (elapsedTime >= 1000) {
-    speed = calculateSpeed(distance, elapsedTime);
-    previousTime = currentTime;
-  }
+
+
 }
 
 void manual(char command) {  // Process commands received from the GUI
@@ -129,7 +115,6 @@ void forward(int motorspeed2) {
   digitalWrite(MOTOR_B_IN1_PIN, HIGH);
   digitalWrite(MOTOR_B_IN2_PIN, LOW);
   analogWrite(MOTOR_B_EN_PIN, motorspeed2);
-  bluetoothSerial.print('F');
 }
 
 void backward(int motorspeed2) {
@@ -141,7 +126,6 @@ void backward(int motorspeed2) {
   digitalWrite(MOTOR_B_IN1_PIN, LOW);
   digitalWrite(MOTOR_B_IN2_PIN, HIGH);
   analogWrite(MOTOR_B_EN_PIN, motorspeed2);
-  bluetoothSerial.print('B');
 }
 
 void left(int motorspeed2) {
@@ -153,7 +137,6 @@ void left(int motorspeed2) {
   digitalWrite(MOTOR_B_IN1_PIN, LOW);
   digitalWrite(MOTOR_B_IN2_PIN, HIGH);
   analogWrite(MOTOR_B_EN_PIN, motorspeed2);
-  bluetoothSerial.print('L');
 }
 
 void right(int motorspeed2) {
@@ -165,7 +148,6 @@ void right(int motorspeed2) {
   digitalWrite(MOTOR_B_IN1_PIN, HIGH);
   digitalWrite(MOTOR_B_IN2_PIN, LOW);
   analogWrite(MOTOR_B_EN_PIN, motorspeed2);
-  bluetoothSerial.print('R');
 }
 
 void stop() {
@@ -177,7 +159,6 @@ void stop() {
   digitalWrite(MOTOR_B_IN1_PIN, LOW);
   digitalWrite(MOTOR_B_IN2_PIN, LOW);
   analogWrite(MOTOR_B_EN_PIN, 0);
-  bluetoothSerial.print('S');
 }
 
 int measureDistance() {
@@ -199,13 +180,16 @@ float measureCurrentA() {
   int adc = analogRead(current_sensor);
   float voltage = adc*5/1023.0;
   float current = (voltage-2.5)/0.185;
+  Serial.print("Current : ");
+  Serial.println(current);
+  delay(300);
   return current;
 }
 
 float measureVoltageA() {
   // Measure voltage using voltage sensors
   float value = analogRead(voltage_pin);
-  float voltage = map_this(value , 0.0 , 1024.0 , 0.0 , 12.0);
+  float voltage = map_this(value , 0.0 , 1024.0 , 0.0 , 5.0);
   return voltage;
 }
 float map_this(float value, float fromlow, float fromhigh, float tolow, float tohigh)
@@ -230,55 +214,13 @@ void autonomousControl(int distance2 , int velocity)
   digitalWrite(MOTOR_B_IN1_PIN, HIGH);
   digitalWrite(MOTOR_B_IN2_PIN, LOW);
   analogWrite(MOTOR_B_EN_PIN, right_side);
-  indicator(velocity); 
 }
 
-void sendSensorData(int distance, float currentA, float voltageA, int motorspeed4) {
+void sendSensorData(int distance, float currentA, float voltageA) {
   // Send sensor data to the GUI via Bluetooth serial communication
-  bluetoothSerial.print("Distance: ");
-  bluetoothSerial.print(distance);
-  bluetoothSerial.print(" cm");
+  String sensorData = "Distance: " + String(distance) + " cm\n";
+  sensorData += "Current (Motor A): " + String(currentA) + " A\n";
+  sensorData += "Voltage (Motor A): " + String(voltageA) + " V\n";
 
-  bluetoothSerial.print(" Current: ");
-  bluetoothSerial.print(currentA);
-  bluetoothSerial.print(" A");
-
-  bluetoothSerial.print(" Voltage: ");
-  bluetoothSerial.print(voltageA);
-  bluetoothSerial.print(" V");
-  
-  bluetoothSerial.print(" Speed :");
-  bluetoothSerial.print(motorspeed4);
-  bluetoothSerial.print(" m/s ");
-  bluetoothSerial.println();
+  bluetoothSerial.println(sensorData);
 }
-void indicator(int motorspeed3) // Indicates the motor speed 
-{
-  if (motorspeed3 <= 80)
-  {
-    digitalWrite(red_pin,HIGH);
-    digitalWrite(green_pin,LOW);
-    digitalWrite(blue_pin,LOW);
-  }
-  else if(motorspeed3 > 80 && motorspeed3 <= 160 )
-  {
-    digitalWrite(red_pin,LOW);
-    digitalWrite(green_pin,HIGH);
-    digitalWrite(blue_pin,LOW);
-  }
-  else if (motorspeed3 >160 && motorspeed3<255)
-  {
-    digitalWrite(red_pin,LOW);
-    digitalWrite(green_pin,LOW);
-    digitalWrite(blue_pin,HIGH);
-  }
-}
-float calculateSpeed(int distance, unsigned long elapsedTime) {
-  float timeInSeconds = elapsedTime / 1000.0;  
-  float speed = distance / timeInSeconds;      
-  speed /= 100.0;                              
-  return speed;
-}
-
-
-
