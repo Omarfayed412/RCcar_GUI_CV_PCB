@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap, QIcon
 
 
 class Ui_ManualWindow(object):
@@ -72,26 +73,36 @@ class Ui_ManualWindow(object):
         self.motion_pic.setText("")
         self.motion_pic.setAlignment(QtCore.Qt.AlignCenter)
         self.motion_pic.setObjectName("motion_pic")
+        self.compasspic = QPixmap('Compass.jpg')
+        self.motion_pic.setPixmap(self.compasspic)
         self.speed_pic = QtWidgets.QLabel(self.centralwidget)
         self.speed_pic.setGeometry(QtCore.QRect(0, 665, 80, 80))
         self.speed_pic.setText("")
         self.speed_pic.setAlignment(QtCore.Qt.AlignCenter)
         self.speed_pic.setObjectName("speed_pic")
+        self.speedpic = QPixmap('Speed.jpg')
+        self.speed_pic.setPixmap(self.speedpic)
         self.volt_pic = QtWidgets.QLabel(self.centralwidget)
         self.volt_pic.setGeometry(QtCore.QRect(0, 780, 80, 80))
         self.volt_pic.setText("")
         self.volt_pic.setAlignment(QtCore.Qt.AlignCenter)
         self.volt_pic.setObjectName("volt_pic")
+        self.voltpic = QPixmap('Voltage.jpg')
+        self.volt_pic.setPixmap(self.voltpic)
         self.current_pic = QtWidgets.QLabel(self.centralwidget)
         self.current_pic.setGeometry(QtCore.QRect(0, 890, 80, 80))
         self.current_pic.setText("")
         self.current_pic.setAlignment(QtCore.Qt.AlignCenter)
         self.current_pic.setObjectName("current_pic")
+        self.currentpic = QPixmap('Current.jpg')
+        self.current_pic.setPixmap(self.currentpic)
         self.logo = QtWidgets.QLabel(self.centralwidget)
         self.logo.setGeometry(QtCore.QRect(1250, 650, 280, 280))
         self.logo.setText("")
         self.logo.setAlignment(QtCore.Qt.AlignCenter)
         self.logo.setObjectName("logo")
+        self.logopic = QPixmap('Aquaphoton.jpg')
+        self.logo.setPixmap(self.logopic)
         self.caption = QtWidgets.QLabel(self.centralwidget)
         self.caption.setGeometry(QtCore.QRect(350, 650, 300, 300))
         font = QtGui.QFont()
@@ -139,18 +150,65 @@ class Ui_ManualWindow(object):
     def retranslateUi(self, ManualWindow):
         _translate = QtCore.QCoreApplication.translate
         ManualWindow.setWindowTitle(_translate("ManualWindow", "MainWindow"))
+        ManualWindow.setStyleSheet("background-color: white")
         self.auto_button.setText(_translate("ManualWindow", "Autonomous"))
+        self.auto_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.stitch_button.setText(_translate("ManualWindow", "Video Stitching"))
+        self.stitch_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.stereo_button.setText(_translate("ManualWindow", "Stereo Vision"))
+        self.stereo_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.screenshot_button.setText(_translate("ManualWindow", "Screenshot"))
+        self.screenshot_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 40; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.motion.setText(_translate("ManualWindow", "Motion"))
+        self.motion.setStyleSheet("background-color: white; border: 3px solid black")
         self.speed.setText(_translate("ManualWindow", "Speed"))
+        self.speed.setStyleSheet("background-color: white; border: 3px solid black")
         self.voltage.setText(_translate("ManualWindow", "Voltage"))
+        self.voltage.setStyleSheet("background-color: white; border: 3px solid black")
         self.current.setText(_translate("ManualWindow", "Current"))
+        self.current.setStyleSheet("background-color: white; border: 3px solid black")
         self.camera.setText(_translate("ManualWindow", "Live Feed"))
+        self.camera.setStyleSheet("background-color: white; border: 3px solid black")
         self.caption.setText(_translate("ManualWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Training\'24</span></p><p><span style=\" font-weight:600;\">Team 1</span></p></body></html>"))
         self.Drive.setText(_translate("ManualWindow", "Drive"))
+        self.Drive.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 50; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.Park.setText(_translate("ManualWindow", "Park"))
+        self.Park.setStyleSheet("QPushButton""{""background-color: #00ffff; border-radius: 50; border: 3px solid""}"
+                                    "QPushButton::Pressed""{""background-color: green""}")
+        self.forward_button.setIcon(QIcon('Forward.png'))
+        self.forward_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
+        self.backward_button.setIcon(QIcon('Backward.png'))
+        self.backward_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
+        self.right_button.setIcon(QIcon('Right.png'))
+        self.right_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
+        self.left_button.setIcon(QIcon('Left.png'))
+        self.left_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
+        self.RF.setStyleSheet("QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+                                  "QPushButton::Pressed""{""background-color: green""}")
+        self.LF.setStyleSheet("QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+                                  "QPushButton::Pressed""{""background-color: green""}")
+        self.RB.setStyleSheet("QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+                                  "QPushButton::Pressed""{""background-color: green""}")
+        self.LB.setStyleSheet("QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+                                  "QPushButton::Pressed""{""background-color: green""}")
 
 
 if __name__ == "__main__":

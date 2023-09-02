@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtGui import QPixmap
 
 class Ui_AutoWindow(object):
     def setupUi(self, AutoWindow):
@@ -66,21 +66,29 @@ class Ui_AutoWindow(object):
         self.motion_pic.setText("")
         self.motion_pic.setAlignment(QtCore.Qt.AlignCenter)
         self.motion_pic.setObjectName("motion_pic")
+        self.compasspic = QPixmap('Compass.jpg')
+        self.motion_pic.setPixmap(self.compasspic)
         self.speed_pic = QtWidgets.QLabel(self.centralwidget)
         self.speed_pic.setGeometry(QtCore.QRect(0, 665, 80, 80))
         self.speed_pic.setText("")
         self.speed_pic.setAlignment(QtCore.Qt.AlignCenter)
         self.speed_pic.setObjectName("speed_pic")
+        self.speedpic = QPixmap('Speed.jpg')
+        self.speed_pic.setPixmap(self.speedpic)
         self.volt_pic = QtWidgets.QLabel(self.centralwidget)
         self.volt_pic.setGeometry(QtCore.QRect(0, 780, 80, 80))
         self.volt_pic.setText("")
         self.volt_pic.setAlignment(QtCore.Qt.AlignCenter)
         self.volt_pic.setObjectName("volt_pic")
+        self.voltpic = QPixmap('Voltage.jpg')
+        self.volt_pic.setPixmap(self.voltpic)
         self.current_pic = QtWidgets.QLabel(self.centralwidget)
         self.current_pic.setGeometry(QtCore.QRect(0, 890, 80, 80))
         self.current_pic.setText("")
         self.current_pic.setAlignment(QtCore.Qt.AlignCenter)
         self.current_pic.setObjectName("current_pic")
+        self.currentpic = QPixmap('Current.jpg')
+        self.current_pic.setPixmap(self.currentpic)
         self.set_distance = QtWidgets.QPushButton(self.centralwidget)
         self.set_distance.setGeometry(QtCore.QRect(725, 550, 150, 80))
         self.set_distance.setObjectName("set_distance")
@@ -92,6 +100,8 @@ class Ui_AutoWindow(object):
         self.logo.setText("")
         self.logo.setAlignment(QtCore.Qt.AlignCenter)
         self.logo.setObjectName("logo")
+        self.logopic = QPixmap('Aquaphoton.jpg')
+        self.logo.setPixmap(self.logopic)
         self.caption = QtWidgets.QLabel(self.centralwidget)
         self.caption.setGeometry(QtCore.QRect(350, 650, 300, 300))
         font = QtGui.QFont()
@@ -123,23 +133,54 @@ class Ui_AutoWindow(object):
     def retranslateUi(self, AutoWindow):
         _translate = QtCore.QCoreApplication.translate
         AutoWindow.setWindowTitle(_translate("AutoWindow", "MainWindow"))
+        AutoWindow.setStyleSheet("background-color: white")
         self.camera.setText(_translate("AutoWindow", "Live Feed"))
+        self.camera.setStyleSheet("background-color: white; border: 3px solid")
         self.manual_button.setText(_translate("AutoWindow", "Manual"))
+        self.manual_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 40; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.voltage.setText(_translate("AutoWindow", "Voltage"))
+        self.voltage.setStyleSheet("background-color: white; border: 3px solid")
         self.stitch_button.setText(_translate("AutoWindow", "Video Stitching"))
+        self.stitch_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 40; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.stereo_button.setText(_translate("AutoWindow", "Stereo Vision"))
+        self.stereo_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 40; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.speed.setText(_translate("AutoWindow", "Speed"))
+        self.speed.setStyleSheet("background-color: white; border: 3px solid")
         self.screenshot_button.setText(_translate("AutoWindow", "Screenshot"))
+        self.screenshot_button.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 40; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.motion.setText(_translate("AutoWindow", "Motion"))
+        self.motion.setStyleSheet("background-color: white; border: 3px solid")
         self.current.setText(_translate("AutoWindow", "Current"))
+        self.current.setStyleSheet("background-color: white; border: 3px solid")
         self.view_distance.setText(_translate("AutoWindow", "....."))
+        self.view_distance.setStyleSheet("background-color: white; border: 3px solid")
         self.view_speed.setText(_translate("AutoWindow", "....."))
+        self.view_speed.setStyleSheet("background-color: white; border: 3px solid")
         self.ultrasonic.setText(_translate("AutoWindow", "Ultrasonic"))
+        self.ultrasonic.setStyleSheet("background-color: white; border: 3px solid")
         self.set_distance.setText(_translate("AutoWindow", "Set Distance"))
+        self.set_distance.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 40; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.set_speed.setText(_translate("AutoWindow", "Set Speed"))
+        self.set_speed.setStyleSheet(
+            "QPushButton""{""background-color: #00ffff; border-radius: 40; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.caption.setText(_translate("AutoWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Training\'24</span></p><p><span style=\" font-weight:600;\">Team 1</span></p></body></html>"))
         self.Drive.setText(_translate("AutoWindow", "Drive"))
+        self.Drive.setStyleSheet("QPushButton""{""background-color: #00ffff; border-radius: 50; border: 3px solid""}"
+                                 "QPushButton::Pressed""{""background-color: green""}")
         self.Park.setText(_translate("AutoWindow", "Park"))
+        self.Park.setStyleSheet("QPushButton""{""background-color: #00ffff; border-radius: 50; border: 3px solid""}"
+                                "QPushButton::Pressed""{""background-color: green""}")
 
 
 if __name__ == "__main__":

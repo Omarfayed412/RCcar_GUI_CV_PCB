@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap
 
 
 class Ui_StartWindow(object):
@@ -45,6 +46,8 @@ class Ui_StartWindow(object):
         self.logo.setText("")
         self.logo.setAlignment(QtCore.Qt.AlignCenter)
         self.logo.setObjectName("logo")
+        self.logopic = QPixmap('Aquaphoton.jpg')
+        self.logo.setPixmap(self.logopic)
         StartWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(StartWindow)
@@ -54,7 +57,11 @@ class Ui_StartWindow(object):
         _translate = QtCore.QCoreApplication.translate
         StartWindow.setWindowTitle(_translate("StartWindow", "MainWindow"))
         self.manual_button.setText(_translate("StartWindow", "Manual"))
+        self.manual_button.setStyleSheet("QPushButton""{""background-color: #00ffff""}"
+                                         "QPushButton::Pressed""{""background-color: green""}")
         self.auto_button.setText(_translate("StartWindow", "Autonomous"))
+        self.auto_button.setStyleSheet("QPushButton""{""background-color: #00ffff""}"
+                                       "QPushButton::Pressed""{""background-color: green""}")
         self.caption.setText(_translate("StartWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Training\'24</span></p><p><span style=\" font-weight:600;\">Team 1</span></p></body></html>"))
 
 
