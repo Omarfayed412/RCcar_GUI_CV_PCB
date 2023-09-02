@@ -57,6 +57,7 @@ class MainWindow(QMainWindow):
         self.window2.close()
         self.window1.setWindowTitle("Mode: Manual")
         self.ui1.auto_button.clicked.connect(self.open_auto)
+        ##self.ui1.screenshot_button.clicked.connect(ScreenshotThread)
         #self.ui1.stitch_button.clicked.connect(self.get_stitch)
         self.window1.showMaximized()
 
@@ -65,6 +66,7 @@ class MainWindow(QMainWindow):
         self.window1.close()
         self.window2.setWindowTitle("Mode: Autonomous")
         self.ui2.manual_button.clicked.connect(self.open_manual)
+        ##self.ui2.screenshot_button.clicked.connect(ScreenshotThread)
         #self.ui2.stitch_button.clicked.connect(self.get_stitch)
         self.window2.showMaximized()
 
