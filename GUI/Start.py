@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QIcon
 
 
 class Ui_StartWindow(object):
@@ -48,6 +48,14 @@ class Ui_StartWindow(object):
         self.logo.setObjectName("logo")
         self.logopic = QPixmap('Aquaphoton.jpg')
         self.logo.setPixmap(self.logopic)
+        self.Bluetooth = QtWidgets.QPushButton(self.centralwidget)
+        self.Bluetooth.setGeometry(QtCore.QRect(850, 450, 200, 100))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.Bluetooth.setFont(font)
+        self.Bluetooth.setObjectName("Bluetooth")
         StartWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(StartWindow)
@@ -57,12 +65,15 @@ class Ui_StartWindow(object):
         _translate = QtCore.QCoreApplication.translate
         StartWindow.setWindowTitle(_translate("StartWindow", "MainWindow"))
         self.manual_button.setText(_translate("StartWindow", "Manual"))
-        self.manual_button.setStyleSheet("QPushButton""{""background-color: #00ffff""}"
-                                         "QPushButton::Pressed""{""background-color: green""}")
+        self.manual_button.setStyleSheet("QPushButton""{""background-color: #00ffff;border: 3px solid""}"
+        "QPushButton::Pressed""{""background-color: green""}")
         self.auto_button.setText(_translate("StartWindow", "Autonomous"))
-        self.auto_button.setStyleSheet("QPushButton""{""background-color: #00ffff""}"
-                                       "QPushButton::Pressed""{""background-color: green""}")
+        self.auto_button.setStyleSheet("QPushButton""{""background-color: #00ffff;border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
         self.caption.setText(_translate("StartWindow", "<html><head/><body><p><span style=\" font-weight:600;\">Training\'24</span></p><p><span style=\" font-weight:600;\">Team 1</span></p></body></html>"))
+        self.Bluetooth.setText(_translate("StartWindow", "Bluetooth"))
+        self.Bluetooth.setStyleSheet("QPushButton""{""background-color: #00ffff; border-radius: 30; border: 3px solid""}"
+            "QPushButton::Pressed""{""background-color: green""}")
 
 
 if __name__ == "__main__":
