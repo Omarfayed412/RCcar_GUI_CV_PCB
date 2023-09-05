@@ -101,12 +101,23 @@ img3, img4 = draw_epipolar_lines(right_image, left_image, lines_right, pts2, pts
 
 # step 3: Correspondence
 # - Calculate the disparity map
-mindisparity = 0
-numdisparities = 16
-blocksize = 21
-stereo = cv2.StereoBM_create(numDisparities=numdisparities, blockSize=blocksize)
+win_size = 3
+min_disp = -240
+max_disp = 240
+num_disp = max_disp - min_disp  # Needs to be divisible by 16
+stereo = cv2.StereoSGBM_create(
+    minDisparity=min_disp,
+    numDisparities=num_disp,
+    blockSize=19,
+    uniquenessRatio=5,
+    speckleWindowSize=100,
+    speckleRange=1,
+    disp12MaxDiff=1,
+    P1=8 * 2 * win_size ** 2,
+    P2=32 * 2 * win_size ** 2,
+)
 disparity = stereo.compute(rectified_left, rectified_right)
-
+disparity = (disparity/16.0 - min_disp)/num_disp
 
 # Step 4: Normalize and Save Disparity Map
 disparity_normalized = cv2.normalize(disparity, None, 0, 255, cv2.NORM_MINMAX)
@@ -135,7 +146,7 @@ focal_length = 5299.313  # Adjust the focal length value as needed
 
 # Compute the depth map using the disparity map
 depth_map = (baseline * focal_length) / (disparity_normalized + 1e-6)  # Add a small value to avoid division by zero
-
+print(depth_map)
 # Normalize the depth map to a suitable range for visualization
 depth_normalized = cv2.normalize(depth_map, None, 0, 255, cv2.NORM_MINMAX)
 depth_8bit = np.uint8(depth_normalized)
@@ -155,3 +166,4 @@ plt.title('Depth Map'), plt.xticks([]), plt.yticks([])
 plt.subplot(122), plt.imshow(depth_colormap)
 plt.title('Depth Map with Color'), plt.xticks([]), plt.yticks([])
 plt.show()
+
