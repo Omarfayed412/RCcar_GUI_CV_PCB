@@ -1,0 +1,1392 @@
+
+C:\Users\20112\AppData\Local\Temp\arduino_build_444444/RC_CAR.ino.elf:     file format elf32-avr
+
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+__vectors():
+   0:	3f c0       	rjmp	.+126    	; 0x80 <__ctors_end>
+   2:	59 c0       	rjmp	.+178    	; 0xb6 <__bad_interrupt>
+   4:	58 c0       	rjmp	.+176    	; 0xb6 <__bad_interrupt>
+   6:	57 c0       	rjmp	.+174    	; 0xb6 <__bad_interrupt>
+   8:	56 c0       	rjmp	.+172    	; 0xb6 <__bad_interrupt>
+   a:	55 c0       	rjmp	.+170    	; 0xb6 <__bad_interrupt>
+   c:	54 c0       	rjmp	.+168    	; 0xb6 <__bad_interrupt>
+   e:	53 c0       	rjmp	.+166    	; 0xb6 <__bad_interrupt>
+  10:	52 c0       	rjmp	.+164    	; 0xb6 <__bad_interrupt>
+  12:	4c c1       	rjmp	.+664    	; 0x2ac <__vector_9>
+  14:	50 c0       	rjmp	.+160    	; 0xb6 <__bad_interrupt>
+  16:	4f c0       	rjmp	.+158    	; 0xb6 <__bad_interrupt>
+  18:	4e c0       	rjmp	.+156    	; 0xb6 <__bad_interrupt>
+  1a:	4d c0       	rjmp	.+154    	; 0xb6 <__bad_interrupt>
+  1c:	4c c0       	rjmp	.+152    	; 0xb6 <__bad_interrupt>
+  1e:	4b c0       	rjmp	.+150    	; 0xb6 <__bad_interrupt>
+  20:	4a c0       	rjmp	.+148    	; 0xb6 <__bad_interrupt>
+  22:	49 c0       	rjmp	.+146    	; 0xb6 <__bad_interrupt>
+  24:	48 c0       	rjmp	.+144    	; 0xb6 <__bad_interrupt>
+
+00000026 <__trampolines_end>:
+	...
+__trampolines_start():
+  2e:	00 04       	cpc	r0, r0
+  30:	05 07       	cpc	r16, r21
+	...
+
+0000003d <digital_pin_to_bit_mask_PGM>:
+  3d:	01 02 04 08 10 20 40 80 01 02 04 08 10 20 01 02     ..... @...... ..
+  4d:	04 08 10 20 40 80 40                                ... @.@
+
+00000054 <digital_pin_to_port_PGM>:
+  54:	04 04 04 04 04 04 04 04 02 02 02 02 02 02 03 03     ................
+  64:	03 03 03 03 02 02 03                                .......
+
+0000006b <port_to_output_PGM>:
+  6b:	00 00 00 00 38 00 35 00 32 00                       ....8.5.2.
+
+00000075 <port_to_mode_PGM>:
+  75:	00 00 00 00 37 00 34 00 31 00 00                    ....7.4.1..
+
+00000080 <__ctors_end>:
+__dtors_end():
+  80:	11 24       	eor	r1, r1
+  82:	1f be       	out	0x3f, r1	; 63
+  84:	cf e5       	ldi	r28, 0x5F	; 95
+  86:	d4 e0       	ldi	r29, 0x04	; 4
+  88:	de bf       	out	0x3e, r29	; 62
+  8a:	cd bf       	out	0x3d, r28	; 61
+
+0000008c <__do_copy_data>:
+__do_copy_data():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2409
+  8c:	10 e0       	ldi	r17, 0x00	; 0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2410
+  8e:	a0 e6       	ldi	r26, 0x60	; 96
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2411
+  90:	b0 e0       	ldi	r27, 0x00	; 0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2412
+  92:	e8 ea       	ldi	r30, 0xA8	; 168
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2413
+  94:	f5 e0       	ldi	r31, 0x05	; 5
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2414
+  96:	02 c0       	rjmp	.+4      	; 0x9c <__do_copy_data+0x10>
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2417
+  98:	05 90       	lpm	r0, Z+
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2422
+  9a:	0d 92       	st	X+, r0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2424
+  9c:	a0 36       	cpi	r26, 0x60	; 96
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2425
+  9e:	b1 07       	cpc	r27, r17
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2426
+  a0:	d9 f7       	brne	.-10     	; 0x98 <__do_copy_data+0xc>
+
+000000a2 <__do_clear_bss>:
+__do_clear_bss():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2441
+  a2:	20 e0       	ldi	r18, 0x00	; 0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2442
+  a4:	a0 e6       	ldi	r26, 0x60	; 96
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2443
+  a6:	b0 e0       	ldi	r27, 0x00	; 0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2444
+  a8:	01 c0       	rjmp	.+2      	; 0xac <.do_clear_bss_start>
+
+000000aa <.do_clear_bss_loop>:
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2446
+  aa:	1d 92       	st	X+, r1
+
+000000ac <.do_clear_bss_start>:
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2448
+  ac:	a9 36       	cpi	r26, 0x69	; 105
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2449
+  ae:	b2 07       	cpc	r27, r18
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2450
+  b0:	e1 f7       	brne	.-8      	; 0xaa <.do_clear_bss_loop>
+.do_clear_bss_start():
+  b2:	6d d2       	rcall	.+1242   	; 0x58e <main>
+  b4:	77 c2       	rjmp	.+1262   	; 0x5a4 <_exit>
+
+000000b6 <__bad_interrupt>:
+__vector_1():
+  b6:	a4 cf       	rjmp	.-184    	; 0x0 <__vectors>
+
+000000b8 <setup>:
+setup():
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:32
+#define RGB_B PB5
+#define RGB_G PB4
+
+void setup() {
+  //Pin initiallization 
+  pinMode(MOTOR_L_EN_PIN, OUTPUT);
+  b8:	61 e0       	ldi	r22, 0x01	; 1
+  ba:	85 e0       	ldi	r24, 0x05	; 5
+  bc:	fe d1       	rcall	.+1020   	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:33
+  pinMode(MOTOR_L_IN1_PIN, OUTPUT);
+  be:	61 e0       	ldi	r22, 0x01	; 1
+  c0:	86 e0       	ldi	r24, 0x06	; 6
+  c2:	fb d1       	rcall	.+1014   	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:34
+  pinMode(MOTOR_L_IN2_PIN, OUTPUT);
+  c4:	61 e0       	ldi	r22, 0x01	; 1
+  c6:	87 e0       	ldi	r24, 0x07	; 7
+  c8:	f8 d1       	rcall	.+1008   	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:36
+  
+  pinMode(MOTOR_R_EN_PIN, OUTPUT);
+  ca:	61 e0       	ldi	r22, 0x01	; 1
+  cc:	82 e0       	ldi	r24, 0x02	; 2
+  ce:	f5 d1       	rcall	.+1002   	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:37
+  pinMode(MOTOR_R_IN1_PIN, OUTPUT);
+  d0:	61 e0       	ldi	r22, 0x01	; 1
+  d2:	80 e0       	ldi	r24, 0x00	; 0
+  d4:	f2 d1       	rcall	.+996    	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:38
+  pinMode(MOTOR_R_IN2_PIN, OUTPUT);
+  d6:	61 e0       	ldi	r22, 0x01	; 1
+  d8:	81 e0       	ldi	r24, 0x01	; 1
+  da:	ef d1       	rcall	.+990    	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:40
+
+  pinMode(CURRENT_SENSE, INPUT);
+  dc:	60 e0       	ldi	r22, 0x00	; 0
+  de:	80 e0       	ldi	r24, 0x00	; 0
+  e0:	ec d1       	rcall	.+984    	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:41
+  pinMode(VOLT_SENSE, INPUT);
+  e2:	60 e0       	ldi	r22, 0x00	; 0
+  e4:	81 e0       	ldi	r24, 0x01	; 1
+  e6:	e9 d1       	rcall	.+978    	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:43
+
+  pinMode(TRIG_PIN, OUTPUT);
+  e8:	61 e0       	ldi	r22, 0x01	; 1
+  ea:	83 e0       	ldi	r24, 0x03	; 3
+  ec:	e6 d1       	rcall	.+972    	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:44
+  pinMode(ECHO_PIN, INPUT);
+  ee:	60 e0       	ldi	r22, 0x00	; 0
+  f0:	82 e0       	ldi	r24, 0x02	; 2
+  f2:	e3 d1       	rcall	.+966    	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:46
+
+  pinMode(BUZZER, OUTPUT);
+  f4:	61 e0       	ldi	r22, 0x01	; 1
+  f6:	83 e0       	ldi	r24, 0x03	; 3
+  f8:	e0 d1       	rcall	.+960    	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:47
+  pinMode(LED, OUTPUT);
+  fa:	61 e0       	ldi	r22, 0x01	; 1
+  fc:	84 e0       	ldi	r24, 0x04	; 4
+  fe:	dd d1       	rcall	.+954    	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:48
+  pinMode(RGB_R, OUTPUT);
+ 100:	61 e0       	ldi	r22, 0x01	; 1
+ 102:	83 e0       	ldi	r24, 0x03	; 3
+ 104:	da d1       	rcall	.+948    	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:49
+  pinMode(RGB_G, OUTPUT);
+ 106:	61 e0       	ldi	r22, 0x01	; 1
+ 108:	84 e0       	ldi	r24, 0x04	; 4
+ 10a:	d7 d1       	rcall	.+942    	; 0x4ba <pinMode>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:50
+  pinMode(RGB_B, OUTPUT);
+ 10c:	61 e0       	ldi	r22, 0x01	; 1
+ 10e:	85 e0       	ldi	r24, 0x05	; 5
+ 110:	d4 c1       	rjmp	.+936    	; 0x4ba <pinMode>
+
+00000112 <Forward(int)>:
+_Z7Forwardi():
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:79
+  Stop();
+  delay(1000);
+  
+}
+
+void Forward(int motorspeed2) {
+ 112:	cf 93       	push	r28
+ 114:	df 93       	push	r29
+ 116:	ec 01       	movw	r28, r24
+ 118:	8f 3f       	cpi	r24, 0xFF	; 255
+ 11a:	91 05       	cpc	r25, r1
+ 11c:	19 f0       	breq	.+6      	; 0x124 <Forward(int)+0x12>
+ 11e:	14 f0       	brlt	.+4      	; 0x124 <Forward(int)+0x12>
+ 120:	cf ef       	ldi	r28, 0xFF	; 255
+ 122:	d0 e0       	ldi	r29, 0x00	; 0
+ 124:	d7 ff       	sbrs	r29, 7
+ 126:	02 c0       	rjmp	.+4      	; 0x12c <Forward(int)+0x1a>
+ 128:	d0 e0       	ldi	r29, 0x00	; 0
+ 12a:	c0 e0       	ldi	r28, 0x00	; 0
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:82
+  motorspeed2 = constrain(motorspeed2,0,255);
+
+  analogWrite(MOTOR_L_EN_PIN, motorspeed2);
+ 12c:	be 01       	movw	r22, r28
+ 12e:	85 e0       	ldi	r24, 0x05	; 5
+ 130:	7c d1       	rcall	.+760    	; 0x42a <analogWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:83
+  digitalWrite(MOTOR_L_IN1_PIN, HIGH);
+ 132:	61 e0       	ldi	r22, 0x01	; 1
+ 134:	86 e0       	ldi	r24, 0x06	; 6
+ 136:	fd d1       	rcall	.+1018   	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:84
+  digitalWrite(MOTOR_L_IN2_PIN, LOW);
+ 138:	60 e0       	ldi	r22, 0x00	; 0
+ 13a:	87 e0       	ldi	r24, 0x07	; 7
+ 13c:	fa d1       	rcall	.+1012   	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:86
+
+  analogWrite(MOTOR_R_EN_PIN, motorspeed2);
+ 13e:	be 01       	movw	r22, r28
+ 140:	82 e0       	ldi	r24, 0x02	; 2
+ 142:	73 d1       	rcall	.+742    	; 0x42a <analogWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:87
+  digitalWrite(MOTOR_R_IN1_PIN, HIGH);
+ 144:	61 e0       	ldi	r22, 0x01	; 1
+ 146:	80 e0       	ldi	r24, 0x00	; 0
+ 148:	f4 d1       	rcall	.+1000   	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:88
+  digitalWrite(MOTOR_R_IN2_PIN, LOW);
+ 14a:	60 e0       	ldi	r22, 0x00	; 0
+ 14c:	81 e0       	ldi	r24, 0x01	; 1
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:89
+}
+ 14e:	df 91       	pop	r29
+ 150:	cf 91       	pop	r28
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:88
+  digitalWrite(MOTOR_L_IN1_PIN, HIGH);
+  digitalWrite(MOTOR_L_IN2_PIN, LOW);
+
+  analogWrite(MOTOR_R_EN_PIN, motorspeed2);
+  digitalWrite(MOTOR_R_IN1_PIN, HIGH);
+  digitalWrite(MOTOR_R_IN2_PIN, LOW);
+ 152:	ef c1       	rjmp	.+990    	; 0x532 <digitalWrite>
+
+00000154 <Backward(int)>:
+_Z8Backwardi():
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:91
+}
+
+void Backward(int motorspeed2) {
+ 154:	cf 93       	push	r28
+ 156:	df 93       	push	r29
+ 158:	ec 01       	movw	r28, r24
+ 15a:	8f 3f       	cpi	r24, 0xFF	; 255
+ 15c:	91 05       	cpc	r25, r1
+ 15e:	19 f0       	breq	.+6      	; 0x166 <Backward(int)+0x12>
+ 160:	14 f0       	brlt	.+4      	; 0x166 <Backward(int)+0x12>
+ 162:	cf ef       	ldi	r28, 0xFF	; 255
+ 164:	d0 e0       	ldi	r29, 0x00	; 0
+ 166:	d7 ff       	sbrs	r29, 7
+ 168:	02 c0       	rjmp	.+4      	; 0x16e <Backward(int)+0x1a>
+ 16a:	d0 e0       	ldi	r29, 0x00	; 0
+ 16c:	c0 e0       	ldi	r28, 0x00	; 0
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:94
+  motorspeed2 = constrain(motorspeed2,0,255);
+  
+  analogWrite(MOTOR_L_EN_PIN, motorspeed2);
+ 16e:	be 01       	movw	r22, r28
+ 170:	85 e0       	ldi	r24, 0x05	; 5
+ 172:	5b d1       	rcall	.+694    	; 0x42a <analogWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:95
+  digitalWrite(MOTOR_L_IN1_PIN, LOW);
+ 174:	60 e0       	ldi	r22, 0x00	; 0
+ 176:	86 e0       	ldi	r24, 0x06	; 6
+ 178:	dc d1       	rcall	.+952    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:96
+  digitalWrite(MOTOR_L_IN2_PIN, HIGH);
+ 17a:	61 e0       	ldi	r22, 0x01	; 1
+ 17c:	87 e0       	ldi	r24, 0x07	; 7
+ 17e:	d9 d1       	rcall	.+946    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:98
+
+  analogWrite(MOTOR_R_EN_PIN, motorspeed2);
+ 180:	be 01       	movw	r22, r28
+ 182:	82 e0       	ldi	r24, 0x02	; 2
+ 184:	52 d1       	rcall	.+676    	; 0x42a <analogWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:99
+  digitalWrite(MOTOR_R_IN1_PIN, LOW);
+ 186:	60 e0       	ldi	r22, 0x00	; 0
+ 188:	80 e0       	ldi	r24, 0x00	; 0
+ 18a:	d3 d1       	rcall	.+934    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:100
+  digitalWrite(MOTOR_R_IN2_PIN, HIGH);
+ 18c:	61 e0       	ldi	r22, 0x01	; 1
+ 18e:	81 e0       	ldi	r24, 0x01	; 1
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:101
+}
+ 190:	df 91       	pop	r29
+ 192:	cf 91       	pop	r28
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:100
+  digitalWrite(MOTOR_L_IN1_PIN, LOW);
+  digitalWrite(MOTOR_L_IN2_PIN, HIGH);
+
+  analogWrite(MOTOR_R_EN_PIN, motorspeed2);
+  digitalWrite(MOTOR_R_IN1_PIN, LOW);
+  digitalWrite(MOTOR_R_IN2_PIN, HIGH);
+ 194:	ce c1       	rjmp	.+924    	; 0x532 <digitalWrite>
+
+00000196 <Left(int)>:
+_Z4Lefti():
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:103
+}
+
+void Left(int motorspeed2) {
+ 196:	cf 93       	push	r28
+ 198:	df 93       	push	r29
+ 19a:	ec 01       	movw	r28, r24
+ 19c:	8f 3f       	cpi	r24, 0xFF	; 255
+ 19e:	91 05       	cpc	r25, r1
+ 1a0:	19 f0       	breq	.+6      	; 0x1a8 <Left(int)+0x12>
+ 1a2:	14 f0       	brlt	.+4      	; 0x1a8 <Left(int)+0x12>
+ 1a4:	cf ef       	ldi	r28, 0xFF	; 255
+ 1a6:	d0 e0       	ldi	r29, 0x00	; 0
+ 1a8:	d7 ff       	sbrs	r29, 7
+ 1aa:	02 c0       	rjmp	.+4      	; 0x1b0 <Left(int)+0x1a>
+ 1ac:	d0 e0       	ldi	r29, 0x00	; 0
+ 1ae:	c0 e0       	ldi	r28, 0x00	; 0
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:106
+  motorspeed2 = constrain(motorspeed2,0,255);
+
+  analogWrite(MOTOR_L_EN_PIN, motorspeed2);
+ 1b0:	be 01       	movw	r22, r28
+ 1b2:	85 e0       	ldi	r24, 0x05	; 5
+ 1b4:	3a d1       	rcall	.+628    	; 0x42a <analogWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:107
+  digitalWrite(MOTOR_L_IN1_PIN, LOW);
+ 1b6:	60 e0       	ldi	r22, 0x00	; 0
+ 1b8:	86 e0       	ldi	r24, 0x06	; 6
+ 1ba:	bb d1       	rcall	.+886    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:108
+  digitalWrite(MOTOR_L_IN2_PIN, LOW);
+ 1bc:	60 e0       	ldi	r22, 0x00	; 0
+ 1be:	87 e0       	ldi	r24, 0x07	; 7
+ 1c0:	b8 d1       	rcall	.+880    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:110
+
+  analogWrite(MOTOR_R_EN_PIN, motorspeed2);
+ 1c2:	be 01       	movw	r22, r28
+ 1c4:	82 e0       	ldi	r24, 0x02	; 2
+ 1c6:	31 d1       	rcall	.+610    	; 0x42a <analogWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:111
+  digitalWrite(MOTOR_R_IN1_PIN, HIGH);
+ 1c8:	61 e0       	ldi	r22, 0x01	; 1
+ 1ca:	80 e0       	ldi	r24, 0x00	; 0
+ 1cc:	b2 d1       	rcall	.+868    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:112
+  digitalWrite(MOTOR_R_IN2_PIN, LOW);
+ 1ce:	60 e0       	ldi	r22, 0x00	; 0
+ 1d0:	81 e0       	ldi	r24, 0x01	; 1
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:113
+}
+ 1d2:	df 91       	pop	r29
+ 1d4:	cf 91       	pop	r28
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:112
+  digitalWrite(MOTOR_L_IN1_PIN, LOW);
+  digitalWrite(MOTOR_L_IN2_PIN, LOW);
+
+  analogWrite(MOTOR_R_EN_PIN, motorspeed2);
+  digitalWrite(MOTOR_R_IN1_PIN, HIGH);
+  digitalWrite(MOTOR_R_IN2_PIN, LOW);
+ 1d6:	ad c1       	rjmp	.+858    	; 0x532 <digitalWrite>
+
+000001d8 <Right(int)>:
+_Z5Righti():
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:115
+}
+
+void Right(int motorspeed2) {
+ 1d8:	cf 93       	push	r28
+ 1da:	df 93       	push	r29
+ 1dc:	ec 01       	movw	r28, r24
+ 1de:	8f 3f       	cpi	r24, 0xFF	; 255
+ 1e0:	91 05       	cpc	r25, r1
+ 1e2:	19 f0       	breq	.+6      	; 0x1ea <Right(int)+0x12>
+ 1e4:	14 f0       	brlt	.+4      	; 0x1ea <Right(int)+0x12>
+ 1e6:	cf ef       	ldi	r28, 0xFF	; 255
+ 1e8:	d0 e0       	ldi	r29, 0x00	; 0
+ 1ea:	d7 ff       	sbrs	r29, 7
+ 1ec:	02 c0       	rjmp	.+4      	; 0x1f2 <Right(int)+0x1a>
+ 1ee:	d0 e0       	ldi	r29, 0x00	; 0
+ 1f0:	c0 e0       	ldi	r28, 0x00	; 0
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:118
+  motorspeed2 = constrain(motorspeed2,0,255);
+  
+  analogWrite(MOTOR_L_EN_PIN, motorspeed2);  
+ 1f2:	be 01       	movw	r22, r28
+ 1f4:	85 e0       	ldi	r24, 0x05	; 5
+ 1f6:	19 d1       	rcall	.+562    	; 0x42a <analogWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:119
+  digitalWrite(MOTOR_L_IN1_PIN, HIGH);
+ 1f8:	61 e0       	ldi	r22, 0x01	; 1
+ 1fa:	86 e0       	ldi	r24, 0x06	; 6
+ 1fc:	9a d1       	rcall	.+820    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:120
+  digitalWrite(MOTOR_L_IN2_PIN, LOW);
+ 1fe:	60 e0       	ldi	r22, 0x00	; 0
+ 200:	87 e0       	ldi	r24, 0x07	; 7
+ 202:	97 d1       	rcall	.+814    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:122
+
+  analogWrite(MOTOR_R_EN_PIN, motorspeed2);
+ 204:	be 01       	movw	r22, r28
+ 206:	82 e0       	ldi	r24, 0x02	; 2
+ 208:	10 d1       	rcall	.+544    	; 0x42a <analogWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:123
+  digitalWrite(MOTOR_R_IN1_PIN, LOW);
+ 20a:	60 e0       	ldi	r22, 0x00	; 0
+ 20c:	80 e0       	ldi	r24, 0x00	; 0
+ 20e:	91 d1       	rcall	.+802    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:124
+  digitalWrite(MOTOR_R_IN2_PIN, LOW);
+ 210:	60 e0       	ldi	r22, 0x00	; 0
+ 212:	81 e0       	ldi	r24, 0x01	; 1
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:125
+}
+ 214:	df 91       	pop	r29
+ 216:	cf 91       	pop	r28
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:124
+  digitalWrite(MOTOR_L_IN1_PIN, HIGH);
+  digitalWrite(MOTOR_L_IN2_PIN, LOW);
+
+  analogWrite(MOTOR_R_EN_PIN, motorspeed2);
+  digitalWrite(MOTOR_R_IN1_PIN, LOW);
+  digitalWrite(MOTOR_R_IN2_PIN, LOW);
+ 218:	8c c1       	rjmp	.+792    	; 0x532 <digitalWrite>
+
+0000021a <Stop()>:
+_Z4Stopv():
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:128
+}
+
+void Stop(void) {
+  digitalWrite(MOTOR_L_IN1_PIN, LOW);
+ 21a:	60 e0       	ldi	r22, 0x00	; 0
+ 21c:	86 e0       	ldi	r24, 0x06	; 6
+ 21e:	89 d1       	rcall	.+786    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:129
+  digitalWrite(MOTOR_L_IN2_PIN, LOW);
+ 220:	60 e0       	ldi	r22, 0x00	; 0
+ 222:	87 e0       	ldi	r24, 0x07	; 7
+ 224:	86 d1       	rcall	.+780    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:130
+  analogWrite(MOTOR_L_EN_PIN, 0);
+ 226:	70 e0       	ldi	r23, 0x00	; 0
+ 228:	60 e0       	ldi	r22, 0x00	; 0
+ 22a:	85 e0       	ldi	r24, 0x05	; 5
+ 22c:	fe d0       	rcall	.+508    	; 0x42a <analogWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:132
+
+  digitalWrite(MOTOR_R_IN1_PIN, LOW);
+ 22e:	60 e0       	ldi	r22, 0x00	; 0
+ 230:	80 e0       	ldi	r24, 0x00	; 0
+ 232:	7f d1       	rcall	.+766    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:133
+  digitalWrite(MOTOR_R_IN2_PIN, LOW);
+ 234:	60 e0       	ldi	r22, 0x00	; 0
+ 236:	81 e0       	ldi	r24, 0x01	; 1
+ 238:	7c d1       	rcall	.+760    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:134
+  analogWrite(MOTOR_R_EN_PIN, 0);
+ 23a:	70 e0       	ldi	r23, 0x00	; 0
+ 23c:	60 e0       	ldi	r22, 0x00	; 0
+ 23e:	82 e0       	ldi	r24, 0x02	; 2
+ 240:	f4 c0       	rjmp	.+488    	; 0x42a <analogWrite>
+
+00000242 <loop>:
+loop():
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:54
+  pinMode(RGB_G, OUTPUT);
+  pinMode(RGB_B, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED, HIGH);
+ 242:	61 e0       	ldi	r22, 0x01	; 1
+ 244:	84 e0       	ldi	r24, 0x04	; 4
+ 246:	75 d1       	rcall	.+746    	; 0x532 <digitalWrite>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:56
+  
+  Forward(255);
+ 248:	8f ef       	ldi	r24, 0xFF	; 255
+ 24a:	90 e0       	ldi	r25, 0x00	; 0
+ 24c:	62 df       	rcall	.-316    	; 0x112 <Forward(int)>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:57
+  delay(3000);
+ 24e:	68 eb       	ldi	r22, 0xB8	; 184
+ 250:	7b e0       	ldi	r23, 0x0B	; 11
+ 252:	80 e0       	ldi	r24, 0x00	; 0
+ 254:	90 e0       	ldi	r25, 0x00	; 0
+ 256:	9a d0       	rcall	.+308    	; 0x38c <delay>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:59
+  
+  Stop();
+ 258:	e0 df       	rcall	.-64     	; 0x21a <Stop()>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:60
+  delay(1000);
+ 25a:	68 ee       	ldi	r22, 0xE8	; 232
+ 25c:	73 e0       	ldi	r23, 0x03	; 3
+ 25e:	80 e0       	ldi	r24, 0x00	; 0
+ 260:	90 e0       	ldi	r25, 0x00	; 0
+ 262:	94 d0       	rcall	.+296    	; 0x38c <delay>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:62
+  
+  Backward(255);
+ 264:	8f ef       	ldi	r24, 0xFF	; 255
+ 266:	90 e0       	ldi	r25, 0x00	; 0
+ 268:	75 df       	rcall	.-278    	; 0x154 <Backward(int)>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:63
+  delay(3000);
+ 26a:	68 eb       	ldi	r22, 0xB8	; 184
+ 26c:	7b e0       	ldi	r23, 0x0B	; 11
+ 26e:	80 e0       	ldi	r24, 0x00	; 0
+ 270:	90 e0       	ldi	r25, 0x00	; 0
+ 272:	8c d0       	rcall	.+280    	; 0x38c <delay>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:65
+
+  Right(255);
+ 274:	8f ef       	ldi	r24, 0xFF	; 255
+ 276:	90 e0       	ldi	r25, 0x00	; 0
+ 278:	af df       	rcall	.-162    	; 0x1d8 <Right(int)>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:66
+  delay(100);
+ 27a:	64 e6       	ldi	r22, 0x64	; 100
+ 27c:	70 e0       	ldi	r23, 0x00	; 0
+ 27e:	80 e0       	ldi	r24, 0x00	; 0
+ 280:	90 e0       	ldi	r25, 0x00	; 0
+ 282:	84 d0       	rcall	.+264    	; 0x38c <delay>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:68
+
+  Stop();
+ 284:	ca df       	rcall	.-108    	; 0x21a <Stop()>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:69
+  delay(1000);
+ 286:	68 ee       	ldi	r22, 0xE8	; 232
+ 288:	73 e0       	ldi	r23, 0x03	; 3
+ 28a:	80 e0       	ldi	r24, 0x00	; 0
+ 28c:	90 e0       	ldi	r25, 0x00	; 0
+ 28e:	7e d0       	rcall	.+252    	; 0x38c <delay>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:71
+
+  Left(255);
+ 290:	8f ef       	ldi	r24, 0xFF	; 255
+ 292:	90 e0       	ldi	r25, 0x00	; 0
+ 294:	80 df       	rcall	.-256    	; 0x196 <Left(int)>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:72
+  delay(100);
+ 296:	64 e6       	ldi	r22, 0x64	; 100
+ 298:	70 e0       	ldi	r23, 0x00	; 0
+ 29a:	80 e0       	ldi	r24, 0x00	; 0
+ 29c:	90 e0       	ldi	r25, 0x00	; 0
+ 29e:	76 d0       	rcall	.+236    	; 0x38c <delay>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:74
+
+  Stop();
+ 2a0:	bc df       	rcall	.-136    	; 0x21a <Stop()>
+D:\Aquaphotons\Mega Project\Team1_RCcar_GUI_CV_PCB\Arduino_code\RC_CAR/RC_CAR.ino:75
+  delay(1000);
+ 2a2:	68 ee       	ldi	r22, 0xE8	; 232
+ 2a4:	73 e0       	ldi	r23, 0x03	; 3
+ 2a6:	80 e0       	ldi	r24, 0x00	; 0
+ 2a8:	90 e0       	ldi	r25, 0x00	; 0
+ 2aa:	70 c0       	rjmp	.+224    	; 0x38c <delay>
+
+000002ac <__vector_9>:
+__vector_9():
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:939
+    "   brne 1b"                     // 2 cycles
+    : /* no outputs */
+    : "w" (us)
+  );
+  // return = 4 cycles
+}
+ 2ac:	1f 92       	push	r1
+ 2ae:	0f 92       	push	r0
+ 2b0:	0f b6       	in	r0, 0x3f	; 63
+ 2b2:	0f 92       	push	r0
+ 2b4:	11 24       	eor	r1, r1
+ 2b6:	2f 93       	push	r18
+ 2b8:	3f 93       	push	r19
+ 2ba:	8f 93       	push	r24
+ 2bc:	9f 93       	push	r25
+ 2be:	af 93       	push	r26
+ 2c0:	bf 93       	push	r27
+ 2c2:	80 91 65 00 	lds	r24, 0x0065	; 0x800065 <timer0_millis>
+ 2c6:	90 91 66 00 	lds	r25, 0x0066	; 0x800066 <timer0_millis+0x1>
+ 2ca:	a0 91 67 00 	lds	r26, 0x0067	; 0x800067 <timer0_millis+0x2>
+ 2ce:	b0 91 68 00 	lds	r27, 0x0068	; 0x800068 <timer0_millis+0x3>
+ 2d2:	30 91 64 00 	lds	r19, 0x0064	; 0x800064 <timer0_fract>
+ 2d6:	23 e0       	ldi	r18, 0x03	; 3
+ 2d8:	23 0f       	add	r18, r19
+ 2da:	2d 37       	cpi	r18, 0x7D	; 125
+ 2dc:	68 f1       	brcs	.+90     	; 0x338 <__vector_9+0x8c>
+ 2de:	26 e8       	ldi	r18, 0x86	; 134
+ 2e0:	23 0f       	add	r18, r19
+ 2e2:	02 96       	adiw	r24, 0x02	; 2
+ 2e4:	a1 1d       	adc	r26, r1
+ 2e6:	b1 1d       	adc	r27, r1
+ 2e8:	20 93 64 00 	sts	0x0064, r18	; 0x800064 <timer0_fract>
+ 2ec:	80 93 65 00 	sts	0x0065, r24	; 0x800065 <timer0_millis>
+ 2f0:	90 93 66 00 	sts	0x0066, r25	; 0x800066 <timer0_millis+0x1>
+ 2f4:	a0 93 67 00 	sts	0x0067, r26	; 0x800067 <timer0_millis+0x2>
+ 2f8:	b0 93 68 00 	sts	0x0068, r27	; 0x800068 <timer0_millis+0x3>
+ 2fc:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 300:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 304:	a0 91 62 00 	lds	r26, 0x0062	; 0x800062 <__DATA_REGION_ORIGIN__+0x2>
+ 308:	b0 91 63 00 	lds	r27, 0x0063	; 0x800063 <__DATA_REGION_ORIGIN__+0x3>
+ 30c:	01 96       	adiw	r24, 0x01	; 1
+ 30e:	a1 1d       	adc	r26, r1
+ 310:	b1 1d       	adc	r27, r1
+ 312:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 316:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 31a:	a0 93 62 00 	sts	0x0062, r26	; 0x800062 <__DATA_REGION_ORIGIN__+0x2>
+ 31e:	b0 93 63 00 	sts	0x0063, r27	; 0x800063 <__DATA_REGION_ORIGIN__+0x3>
+ 322:	bf 91       	pop	r27
+ 324:	af 91       	pop	r26
+ 326:	9f 91       	pop	r25
+ 328:	8f 91       	pop	r24
+ 32a:	3f 91       	pop	r19
+ 32c:	2f 91       	pop	r18
+ 32e:	0f 90       	pop	r0
+ 330:	0f be       	out	0x3f, r0	; 63
+ 332:	0f 90       	pop	r0
+ 334:	1f 90       	pop	r1
+ 336:	18 95       	reti
+ 338:	01 96       	adiw	r24, 0x01	; 1
+ 33a:	a1 1d       	adc	r26, r1
+ 33c:	b1 1d       	adc	r27, r1
+ 33e:	d4 cf       	rjmp	.-88     	; 0x2e8 <__vector_9+0x3c>
+
+00000340 <micros>:
+micros():
+ 340:	3f b7       	in	r19, 0x3f	; 63
+ 342:	f8 94       	cli
+ 344:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 348:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 34c:	a0 91 62 00 	lds	r26, 0x0062	; 0x800062 <__DATA_REGION_ORIGIN__+0x2>
+ 350:	b0 91 63 00 	lds	r27, 0x0063	; 0x800063 <__DATA_REGION_ORIGIN__+0x3>
+ 354:	22 b7       	in	r18, 0x32	; 50
+ 356:	08 b6       	in	r0, 0x38	; 56
+ 358:	00 fe       	sbrs	r0, 0
+ 35a:	05 c0       	rjmp	.+10     	; 0x366 <micros+0x26>
+ 35c:	2f 3f       	cpi	r18, 0xFF	; 255
+ 35e:	19 f0       	breq	.+6      	; 0x366 <micros+0x26>
+ 360:	01 96       	adiw	r24, 0x01	; 1
+ 362:	a1 1d       	adc	r26, r1
+ 364:	b1 1d       	adc	r27, r1
+ 366:	3f bf       	out	0x3f, r19	; 63
+ 368:	ba 2f       	mov	r27, r26
+ 36a:	a9 2f       	mov	r26, r25
+ 36c:	98 2f       	mov	r25, r24
+ 36e:	88 27       	eor	r24, r24
+ 370:	bc 01       	movw	r22, r24
+ 372:	cd 01       	movw	r24, r26
+ 374:	62 0f       	add	r22, r18
+ 376:	71 1d       	adc	r23, r1
+ 378:	81 1d       	adc	r24, r1
+ 37a:	91 1d       	adc	r25, r1
+ 37c:	42 e0       	ldi	r20, 0x02	; 2
+ 37e:	66 0f       	add	r22, r22
+ 380:	77 1f       	adc	r23, r23
+ 382:	88 1f       	adc	r24, r24
+ 384:	99 1f       	adc	r25, r25
+ 386:	4a 95       	dec	r20
+ 388:	d1 f7       	brne	.-12     	; 0x37e <micros+0x3e>
+ 38a:	08 95       	ret
+
+0000038c <delay>:
+delay():
+ 38c:	8f 92       	push	r8
+ 38e:	9f 92       	push	r9
+ 390:	af 92       	push	r10
+ 392:	bf 92       	push	r11
+ 394:	cf 92       	push	r12
+ 396:	df 92       	push	r13
+ 398:	ef 92       	push	r14
+ 39a:	ff 92       	push	r15
+ 39c:	6b 01       	movw	r12, r22
+ 39e:	7c 01       	movw	r14, r24
+ 3a0:	cf df       	rcall	.-98     	; 0x340 <micros>
+ 3a2:	4b 01       	movw	r8, r22
+ 3a4:	5c 01       	movw	r10, r24
+ 3a6:	c1 14       	cp	r12, r1
+ 3a8:	d1 04       	cpc	r13, r1
+ 3aa:	e1 04       	cpc	r14, r1
+ 3ac:	f1 04       	cpc	r15, r1
+ 3ae:	d9 f0       	breq	.+54     	; 0x3e6 <delay+0x5a>
+ 3b0:	f8 d0       	rcall	.+496    	; 0x5a2 <yield>
+ 3b2:	c6 df       	rcall	.-116    	; 0x340 <micros>
+ 3b4:	68 19       	sub	r22, r8
+ 3b6:	79 09       	sbc	r23, r9
+ 3b8:	8a 09       	sbc	r24, r10
+ 3ba:	9b 09       	sbc	r25, r11
+ 3bc:	68 3e       	cpi	r22, 0xE8	; 232
+ 3be:	73 40       	sbci	r23, 0x03	; 3
+ 3c0:	81 05       	cpc	r24, r1
+ 3c2:	91 05       	cpc	r25, r1
+ 3c4:	80 f3       	brcs	.-32     	; 0x3a6 <delay+0x1a>
+ 3c6:	21 e0       	ldi	r18, 0x01	; 1
+ 3c8:	c2 1a       	sub	r12, r18
+ 3ca:	d1 08       	sbc	r13, r1
+ 3cc:	e1 08       	sbc	r14, r1
+ 3ce:	f1 08       	sbc	r15, r1
+ 3d0:	88 ee       	ldi	r24, 0xE8	; 232
+ 3d2:	88 0e       	add	r8, r24
+ 3d4:	83 e0       	ldi	r24, 0x03	; 3
+ 3d6:	98 1e       	adc	r9, r24
+ 3d8:	a1 1c       	adc	r10, r1
+ 3da:	b1 1c       	adc	r11, r1
+ 3dc:	c1 14       	cp	r12, r1
+ 3de:	d1 04       	cpc	r13, r1
+ 3e0:	e1 04       	cpc	r14, r1
+ 3e2:	f1 04       	cpc	r15, r1
+ 3e4:	31 f7       	brne	.-52     	; 0x3b2 <delay+0x26>
+ 3e6:	ff 90       	pop	r15
+ 3e8:	ef 90       	pop	r14
+ 3ea:	df 90       	pop	r13
+ 3ec:	cf 90       	pop	r12
+ 3ee:	bf 90       	pop	r11
+ 3f0:	af 90       	pop	r10
+ 3f2:	9f 90       	pop	r9
+ 3f4:	8f 90       	pop	r8
+ 3f6:	08 95       	ret
+
+000003f8 <init>:
+init():
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:945
+
+void init()
+{
+  // this needs to be called before setup() or some functions won't
+  // work there
+  sei();
+ 3f8:	78 94       	sei
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:966
+#if defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__)
+  // CPU specific: different values for the ATmega64/128
+  TCCR0 |= _BV(WGM01) | _BV(WGM00) | _BV(CS02);
+#elif defined(TCCR0) && defined(CS01) && defined(CS00)
+  // This combination is for the ATmega8535, ATmega8, ATmega16, ATmega32, ATmega8515, ATmega162
+  TCCR0 |= _BV(CS01) | _BV(CS00);
+ 3fa:	83 b7       	in	r24, 0x33	; 51
+ 3fc:	83 60       	ori	r24, 0x03	; 3
+ 3fe:	83 bf       	out	0x33, r24	; 51
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:982
+  #error Timer 0 prescale factor 64 not set correctly
+#endif
+
+// Enable timer 0 overflow interrupt
+#if defined(TIMSK) && defined(TOIE0)
+  TIMSK |= _BV(TOIE0);
+ 400:	89 b7       	in	r24, 0x39	; 57
+ 402:	81 60       	ori	r24, 0x01	; 1
+ 404:	89 bf       	out	0x39, r24	; 57
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:995
+// this is better for motors as it ensures an even waveform
+// note, however, that fast pwm mode can achieve a frequency of up
+// 8 MHz (with a 16 MHz clock) at 50% duty cycle
+
+#if defined(TCCR1B) && defined(CS11) && defined(CS10)
+  TCCR1B = _BV(CS11); // Set timer 1 prescale factor to 64
+ 406:	82 e0       	ldi	r24, 0x02	; 2
+ 408:	8e bd       	out	0x2e, r24	; 46
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:997
+#if F_CPU >= 8000000L
+  TCCR1B |= _BV(CS10);
+ 40a:	8e b5       	in	r24, 0x2e	; 46
+ 40c:	81 60       	ori	r24, 0x01	; 1
+ 40e:	8e bd       	out	0x2e, r24	; 46
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:1006
+#if F_CPU >= 8000000L
+  TCCR1 |= _BV(CS10);
+#endif
+#endif
+#if defined(TCCR1A) && defined(WGM10)
+  TCCR1A |= _BV(WGM10); // Put timer 1 in 8-bit phase correct pwm mode
+ 410:	8f b5       	in	r24, 0x2f	; 47
+ 412:	81 60       	ori	r24, 0x01	; 1
+ 414:	8f bd       	out	0x2f, r24	; 47
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:1011
+#endif
+
+// Set timer 2 prescale factor to 64
+#if defined(TCCR2) && defined(CS22)
+  TCCR2 |= _BV(CS22);
+ 416:	85 b5       	in	r24, 0x25	; 37
+ 418:	84 60       	ori	r24, 0x04	; 4
+ 41a:	85 bd       	out	0x25, r24	; 37
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:1020
+  TCCR2A |= _BV(CS22);
+#endif
+
+// Configure timer 2 for phase correct pwm (8-bit)
+#if defined(TCCR2) && defined(WGM20)
+  TCCR2 |= _BV(WGM20);
+ 41c:	85 b5       	in	r24, 0x25	; 37
+ 41e:	80 64       	ori	r24, 0x40	; 64
+ 420:	85 bd       	out	0x25, r24	; 37
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:1050
+#endif
+
+#if defined(ADCSRA)
+  // set a2d prescaler so we are inside the desired 50-200 KHz range.
+  #if F_CPU >= 16000000 // 16 MHz / 128 = 125 KHz
+    ADCSRA = _BV(ADPS2) | _BV(ADPS1) | _BV(ADPS0) | _BV(ADEN);
+ 422:	87 e8       	ldi	r24, 0x87	; 135
+ 424:	86 b9       	out	0x06, r24	; 6
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:1068
+
+  // The bootloader connects pins 0 and 1 to the USART; disconnect them
+  // here so they can be used as normal digital i/o; they will be
+  // reconnected in Serial.begin()
+#if defined(UCSRB)
+  UCSRB = 0;
+ 426:	1a b8       	out	0x0a, r1	; 10
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring.c:1072
+#elif defined(UCSR0B)
+  UCSR0B = 0;
+#endif
+}
+ 428:	08 95       	ret
+
+0000042a <analogWrite>:
+analogWrite():
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:95
+// Right now, PWM output only works on the pins with
+// hardware support.  These are defined in the appropriate
+// pins_*.c file.  For the rest of the pins, we default
+// to digital output.
+void analogWrite(uint8_t pin, int val)
+{
+ 42a:	1f 93       	push	r17
+ 42c:	cf 93       	push	r28
+ 42e:	df 93       	push	r29
+ 430:	18 2f       	mov	r17, r24
+ 432:	eb 01       	movw	r28, r22
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:101
+  // We need to make sure the PWM output is enabled for those pins
+  // that support it, as we turn it off when digitally reading or
+  // writing with them.  Also, make sure the pin is in output mode
+  // for consistenty with Wiring, which doesn't require a pinMode
+  // call for the analog output pins.
+  pinMode(pin, OUTPUT);
+ 434:	61 e0       	ldi	r22, 0x01	; 1
+ 436:	41 d0       	rcall	.+130    	; 0x4ba <pinMode>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:102
+  if (val == 0)
+ 438:	20 97       	sbiw	r28, 0x00	; 0
+ 43a:	31 f4       	brne	.+12     	; 0x448 <analogWrite+0x1e>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:104
+  {
+    digitalWrite(pin, LOW);
+ 43c:	60 e0       	ldi	r22, 0x00	; 0
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:108
+  }
+  else if (val == 255)
+  {
+    digitalWrite(pin, HIGH);
+ 43e:	81 2f       	mov	r24, r17
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:299
+        } else {
+          digitalWrite(pin, HIGH);
+        }
+    }
+  }
+}
+ 440:	df 91       	pop	r29
+ 442:	cf 91       	pop	r28
+ 444:	1f 91       	pop	r17
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:108
+  {
+    digitalWrite(pin, LOW);
+  }
+  else if (val == 255)
+  {
+    digitalWrite(pin, HIGH);
+ 446:	75 c0       	rjmp	.+234    	; 0x532 <digitalWrite>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:106
+  pinMode(pin, OUTPUT);
+  if (val == 0)
+  {
+    digitalWrite(pin, LOW);
+  }
+  else if (val == 255)
+ 448:	cf 3f       	cpi	r28, 0xFF	; 255
+ 44a:	d1 05       	cpc	r29, r1
+ 44c:	11 f4       	brne	.+4      	; 0x452 <analogWrite+0x28>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:108
+  {
+    digitalWrite(pin, HIGH);
+ 44e:	61 e0       	ldi	r22, 0x01	; 1
+ 450:	f6 cf       	rjmp	.-20     	; 0x43e <analogWrite+0x14>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:112
+  }
+  else
+  {
+    switch(digitalPinToTimer(pin))
+ 452:	e1 2f       	mov	r30, r17
+ 454:	f0 e0       	ldi	r31, 0x00	; 0
+ 456:	ea 5d       	subi	r30, 0xDA	; 218
+ 458:	ff 4f       	sbci	r31, 0xFF	; 255
+ 45a:	e4 91       	lpm	r30, Z
+ 45c:	e5 30       	cpi	r30, 0x05	; 5
+ 45e:	69 f0       	breq	.+26     	; 0x47a <__stack+0x1b>
+ 460:	e7 30       	cpi	r30, 0x07	; 7
+ 462:	89 f0       	breq	.+34     	; 0x486 <__stack+0x27>
+ 464:	e4 30       	cpi	r30, 0x04	; 4
+ 466:	a1 f4       	brne	.+40     	; 0x490 <__stack+0x31>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:148
+      #endif
+
+      #if defined(TCCR1A) && defined(COM1A1)
+      case TIMER1A:
+        // connect pwm to pin on timer 1, channel A
+        TCCR1A |= _BV(COM1A1);
+ 468:	8f b5       	in	r24, 0x2f	; 47
+ 46a:	80 68       	ori	r24, 0x80	; 128
+ 46c:	8f bd       	out	0x2f, r24	; 47
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:149
+        OCR1A = val; // set pwm duty
+ 46e:	db bd       	out	0x2b, r29	; 43
+ 470:	ca bd       	out	0x2a, r28	; 42
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:299
+        } else {
+          digitalWrite(pin, HIGH);
+        }
+    }
+  }
+}
+ 472:	df 91       	pop	r29
+ 474:	cf 91       	pop	r28
+ 476:	1f 91       	pop	r17
+ 478:	08 95       	ret
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:156
+      #endif
+
+      #if defined(TCCR1A) && defined(COM1B1)
+      case TIMER1B:
+        // connect pwm to pin on timer 1, channel B
+        TCCR1A |= _BV(COM1B1);
+ 47a:	8f b5       	in	r24, 0x2f	; 47
+ 47c:	80 62       	ori	r24, 0x20	; 32
+ 47e:	8f bd       	out	0x2f, r24	; 47
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:157
+        OCR1B = val; // set pwm duty
+ 480:	d9 bd       	out	0x29, r29	; 41
+ 482:	c8 bd       	out	0x28, r28	; 40
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:158
+        break;
+ 484:	f6 cf       	rjmp	.-20     	; 0x472 <__stack+0x13>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:172
+      #endif
+
+      #if defined(TCCR2) && defined(COM21)
+      case TIMER2:
+        // connect pwm to pin on timer 2
+        TCCR2 |= _BV(COM21);
+ 486:	85 b5       	in	r24, 0x25	; 37
+ 488:	80 62       	ori	r24, 0x20	; 32
+ 48a:	85 bd       	out	0x25, r24	; 37
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:173
+        OCR2 = val; // set pwm duty
+ 48c:	c3 bd       	out	0x23, r28	; 35
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:174
+        break;
+ 48e:	f1 cf       	rjmp	.-30     	; 0x472 <__stack+0x13>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_analog.c:292
+        break;
+      #endif
+
+      case NOT_ON_TIMER:
+      default:
+        if (val < 128) {
+ 490:	c0 38       	cpi	r28, 0x80	; 128
+ 492:	d1 05       	cpc	r29, r1
+ 494:	e4 f6       	brge	.-72     	; 0x44e <analogWrite+0x24>
+ 496:	d2 cf       	rjmp	.-92     	; 0x43c <analogWrite+0x12>
+
+00000498 <turnOffPWM>:
+turnOffPWM():
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:77
+//
+//static inline void turnOffPWM(uint8_t timer) __attribute__ ((always_inline));
+//static inline void turnOffPWM(uint8_t timer)
+static void turnOffPWM(uint8_t timer)
+{
+  switch (timer)
+ 498:	85 30       	cpi	r24, 0x05	; 5
+ 49a:	41 f0       	breq	.+16     	; 0x4ac <turnOffPWM+0x14>
+ 49c:	87 30       	cpi	r24, 0x07	; 7
+ 49e:	49 f0       	breq	.+18     	; 0x4b2 <turnOffPWM+0x1a>
+ 4a0:	84 30       	cpi	r24, 0x04	; 4
+ 4a2:	51 f4       	brne	.+20     	; 0x4b8 <turnOffPWM+0x20>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:82
+  {
+    // Timer1
+    #if defined(TCCR1A) && defined(COM1A1)
+      case TIMER1A:
+        TCCR1A &= ~_BV(COM1A1);
+ 4a4:	8f b5       	in	r24, 0x2f	; 47
+ 4a6:	8f 77       	andi	r24, 0x7F	; 127
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:87
+        break;
+    #endif
+    #if defined(TCCR1A) && defined(COM1B1)
+      case TIMER1B:
+        TCCR1A &= ~_BV(COM1B1);
+ 4a8:	8f bd       	out	0x2f, r24	; 47
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:88
+        break;
+ 4aa:	08 95       	ret
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:87
+        TCCR1A &= ~_BV(COM1A1);
+        break;
+    #endif
+    #if defined(TCCR1A) && defined(COM1B1)
+      case TIMER1B:
+        TCCR1A &= ~_BV(COM1B1);
+ 4ac:	8f b5       	in	r24, 0x2f	; 47
+ 4ae:	8f 7d       	andi	r24, 0xDF	; 223
+ 4b0:	fb cf       	rjmp	.-10     	; 0x4a8 <turnOffPWM+0x10>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:99
+    #endif
+    
+    // Timer2
+    #if defined(TCCR2) && defined(COM21)
+      case TIMER2:
+        TCCR2 &= ~_BV(COM21);
+ 4b2:	85 b5       	in	r24, 0x25	; 37
+ 4b4:	8f 7d       	andi	r24, 0xDF	; 223
+ 4b6:	85 bd       	out	0x25, r24	; 37
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:185
+      case TIMER0B:
+        TCCR0A &= ~_BV(COM0B1);
+        break;
+    #endif
+  }
+}
+ 4b8:	08 95       	ret
+
+000004ba <pinMode>:
+pinMode():
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:30
+#define ARDUINO_MAIN
+#include "wiring_private.h"
+#include "pins_arduino.h"
+
+void pinMode(uint8_t pin, uint8_t mode)
+{
+ 4ba:	cf 93       	push	r28
+ 4bc:	df 93       	push	r29
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:31
+  uint8_t bit = digitalPinToBitMask(pin);
+ 4be:	90 e0       	ldi	r25, 0x00	; 0
+ 4c0:	fc 01       	movw	r30, r24
+ 4c2:	e3 5c       	subi	r30, 0xC3	; 195
+ 4c4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4c6:	24 91       	lpm	r18, Z
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:32
+  uint8_t port = digitalPinToPort(pin);
+ 4c8:	8c 5a       	subi	r24, 0xAC	; 172
+ 4ca:	9f 4f       	sbci	r25, 0xFF	; 255
+ 4cc:	fc 01       	movw	r30, r24
+ 4ce:	84 91       	lpm	r24, Z
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:35
+  volatile uint8_t *reg, *out;
+
+  if (port == NOT_A_PIN) return;
+ 4d0:	88 23       	and	r24, r24
+ 4d2:	c9 f0       	breq	.+50     	; 0x506 <pinMode+0x4c>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:38
+
+  // JWS: can I let the optimizer do this?
+  reg = portModeRegister(port);
+ 4d4:	90 e0       	ldi	r25, 0x00	; 0
+ 4d6:	88 0f       	add	r24, r24
+ 4d8:	99 1f       	adc	r25, r25
+ 4da:	fc 01       	movw	r30, r24
+ 4dc:	eb 58       	subi	r30, 0x8B	; 139
+ 4de:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4e0:	a5 91       	lpm	r26, Z+
+ 4e2:	b4 91       	lpm	r27, Z
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:39
+  out = portOutputRegister(port);
+ 4e4:	fc 01       	movw	r30, r24
+ 4e6:	e5 59       	subi	r30, 0x95	; 149
+ 4e8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4ea:	c5 91       	lpm	r28, Z+
+ 4ec:	d4 91       	lpm	r29, Z
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:41
+
+  if (mode == INPUT) { 
+ 4ee:	61 11       	cpse	r22, r1
+ 4f0:	0d c0       	rjmp	.+26     	; 0x50c <pinMode+0x52>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:42
+    uint8_t oldSREG = SREG;
+ 4f2:	9f b7       	in	r25, 0x3f	; 63
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:43
+    cli();
+ 4f4:	f8 94       	cli
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:44
+    *reg &= ~bit;
+ 4f6:	8c 91       	ld	r24, X
+ 4f8:	20 95       	com	r18
+ 4fa:	82 23       	and	r24, r18
+ 4fc:	8c 93       	st	X, r24
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:45
+    *out &= ~bit;
+ 4fe:	88 81       	ld	r24, Y
+ 500:	28 23       	and	r18, r24
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:51
+    SREG = oldSREG;
+  } else if (mode == INPUT_PULLUP) {
+    uint8_t oldSREG = SREG;
+    cli();
+    *reg &= ~bit;
+    *out |= bit;
+ 502:	28 83       	st	Y, r18
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:52
+    SREG = oldSREG;
+ 504:	9f bf       	out	0x3f, r25	; 63
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:59
+    uint8_t oldSREG = SREG;
+    cli();
+    *reg |= bit;
+    SREG = oldSREG;
+  }
+}
+ 506:	df 91       	pop	r29
+ 508:	cf 91       	pop	r28
+ 50a:	08 95       	ret
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:47
+    uint8_t oldSREG = SREG;
+    cli();
+    *reg &= ~bit;
+    *out &= ~bit;
+    SREG = oldSREG;
+  } else if (mode == INPUT_PULLUP) {
+ 50c:	62 30       	cpi	r22, 0x02	; 2
+ 50e:	51 f4       	brne	.+20     	; 0x524 <pinMode+0x6a>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:48
+    uint8_t oldSREG = SREG;
+ 510:	9f b7       	in	r25, 0x3f	; 63
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:49
+    cli();
+ 512:	f8 94       	cli
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:50
+    *reg &= ~bit;
+ 514:	3c 91       	ld	r19, X
+ 516:	82 2f       	mov	r24, r18
+ 518:	80 95       	com	r24
+ 51a:	83 23       	and	r24, r19
+ 51c:	8c 93       	st	X, r24
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:51
+    *out |= bit;
+ 51e:	e8 81       	ld	r30, Y
+ 520:	2e 2b       	or	r18, r30
+ 522:	ef cf       	rjmp	.-34     	; 0x502 <pinMode+0x48>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:54
+    SREG = oldSREG;
+  } else {
+    uint8_t oldSREG = SREG;
+ 524:	8f b7       	in	r24, 0x3f	; 63
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:55
+    cli();
+ 526:	f8 94       	cli
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:56
+    *reg |= bit;
+ 528:	ec 91       	ld	r30, X
+ 52a:	2e 2b       	or	r18, r30
+ 52c:	2c 93       	st	X, r18
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:57
+    SREG = oldSREG;
+ 52e:	8f bf       	out	0x3f, r24	; 63
+ 530:	ea cf       	rjmp	.-44     	; 0x506 <pinMode+0x4c>
+
+00000532 <digitalWrite>:
+digitalWrite():
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:188
+    #endif
+  }
+}
+
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+ 532:	1f 93       	push	r17
+ 534:	cf 93       	push	r28
+ 536:	df 93       	push	r29
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:189
+  uint8_t timer = digitalPinToTimer(pin);
+ 538:	28 2f       	mov	r18, r24
+ 53a:	30 e0       	ldi	r19, 0x00	; 0
+ 53c:	f9 01       	movw	r30, r18
+ 53e:	ea 5d       	subi	r30, 0xDA	; 218
+ 540:	ff 4f       	sbci	r31, 0xFF	; 255
+ 542:	84 91       	lpm	r24, Z
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:190
+  uint8_t bit = digitalPinToBitMask(pin);
+ 544:	f9 01       	movw	r30, r18
+ 546:	e3 5c       	subi	r30, 0xC3	; 195
+ 548:	ff 4f       	sbci	r31, 0xFF	; 255
+ 54a:	d4 91       	lpm	r29, Z
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:191
+  uint8_t port = digitalPinToPort(pin);
+ 54c:	f9 01       	movw	r30, r18
+ 54e:	ec 5a       	subi	r30, 0xAC	; 172
+ 550:	ff 4f       	sbci	r31, 0xFF	; 255
+ 552:	c4 91       	lpm	r28, Z
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:194
+  volatile uint8_t *out;
+
+  if (port == NOT_A_PIN) return;
+ 554:	cc 23       	and	r28, r28
+ 556:	a1 f0       	breq	.+40     	; 0x580 <digitalWrite+0x4e>
+ 558:	16 2f       	mov	r17, r22
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:198
+
+  // If the pin that support PWM output, we need to turn it off
+  // before doing a digital write.
+  if (timer != NOT_ON_TIMER) turnOffPWM(timer);
+ 55a:	81 11       	cpse	r24, r1
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:198 (discriminator 1)
+ 55c:	9d df       	rcall	.-198    	; 0x498 <turnOffPWM>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:200
+
+  out = portOutputRegister(port);
+ 55e:	ec 2f       	mov	r30, r28
+ 560:	f0 e0       	ldi	r31, 0x00	; 0
+ 562:	ee 0f       	add	r30, r30
+ 564:	ff 1f       	adc	r31, r31
+ 566:	e5 59       	subi	r30, 0x95	; 149
+ 568:	ff 4f       	sbci	r31, 0xFF	; 255
+ 56a:	a5 91       	lpm	r26, Z+
+ 56c:	b4 91       	lpm	r27, Z
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:202
+
+  uint8_t oldSREG = SREG;
+ 56e:	8f b7       	in	r24, 0x3f	; 63
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:203
+  cli();
+ 570:	f8 94       	cli
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:206
+
+  if (val == LOW) {
+    *out &= ~bit;
+ 572:	ec 91       	ld	r30, X
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:205
+  out = portOutputRegister(port);
+
+  uint8_t oldSREG = SREG;
+  cli();
+
+  if (val == LOW) {
+ 574:	11 11       	cpse	r17, r1
+ 576:	08 c0       	rjmp	.+16     	; 0x588 <digitalWrite+0x56>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:206
+    *out &= ~bit;
+ 578:	d0 95       	com	r29
+ 57a:	de 23       	and	r29, r30
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:208
+  } else {
+    *out |= bit;
+ 57c:	dc 93       	st	X, r29
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:211
+  }
+
+  SREG = oldSREG;
+ 57e:	8f bf       	out	0x3f, r24	; 63
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:212
+}
+ 580:	df 91       	pop	r29
+ 582:	cf 91       	pop	r28
+ 584:	1f 91       	pop	r17
+ 586:	08 95       	ret
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/wiring_digital.c:208
+  cli();
+
+  if (val == LOW) {
+    *out &= ~bit;
+  } else {
+    *out |= bit;
+ 588:	de 2b       	or	r29, r30
+ 58a:	f8 cf       	rjmp	.-16     	; 0x57c <digitalWrite+0x4a>
+
+0000058c <initVariant>:
+initVariant():
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/main.cpp:28
+int atexit(void (* /*func*/ )()) { return 0; }
+
+// Weak empty variant initialization function.
+// May be redefined by variant files.
+void initVariant() __attribute__((weak));
+void initVariant() { }
+ 58c:	08 95       	ret
+
+0000058e <main>:
+main():
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/main.cpp:35
+//void setupUSB() __attribute__((weak));
+//void setupUSB() { }
+
+int main(void)
+{
+  init();
+ 58e:	34 df       	rcall	.-408    	; 0x3f8 <init>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/main.cpp:37
+
+  initVariant();
+ 590:	fd df       	rcall	.-6      	; 0x58c <initVariant>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/main.cpp:43
+
+#if defined(USBCON)
+  USBDevice.attach();
+#endif
+  
+  setup();
+ 592:	92 dd       	rcall	.-1244   	; 0xb8 <setup>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/main.cpp:47
+    
+  for (;;) {
+    loop();
+    if (serialEventRun) serialEventRun();
+ 594:	c0 e0       	ldi	r28, 0x00	; 0
+ 596:	d0 e0       	ldi	r29, 0x00	; 0
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/main.cpp:46
+#endif
+  
+  setup();
+    
+  for (;;) {
+    loop();
+ 598:	54 de       	rcall	.-856    	; 0x242 <loop>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/main.cpp:47
+    if (serialEventRun) serialEventRun();
+ 59a:	20 97       	sbiw	r28, 0x00	; 0
+ 59c:	e9 f3       	breq	.-6      	; 0x598 <main+0xa>
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/main.cpp:47 (discriminator 1)
+ 59e:	30 dd       	rcall	.-1440   	; 0x0 <__vectors>
+ 5a0:	fb cf       	rjmp	.-10     	; 0x598 <main+0xa>
+
+000005a2 <yield>:
+__empty():
+C:\Users\20112\AppData\Local\Arduino15\packages\MiniCore\hardware\avr\2.2.2\cores\MCUdude_corefiles/hooks.c:30
+ * Its defined as a weak symbol and it can be redefined to implement a
+ * real cooperative scheduler.
+ */
+static void __empty() {
+  // Empty
+}
+ 5a2:	08 95       	ret
+
+000005a4 <_exit>:
+exit():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+ 5a4:	f8 94       	cli
+
+000005a6 <__stop_program>:
+__stop_program():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr4/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
+ 5a6:	ff cf       	rjmp	.-2      	; 0x5a6 <__stop_program>
