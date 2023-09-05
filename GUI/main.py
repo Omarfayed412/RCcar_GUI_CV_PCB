@@ -1,15 +1,15 @@
 """
 Importing necessary libraries and modules
 """
-from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog
+from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog, QDialog
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QTimer, QThread, pyqtSignal, QMutex
-from PyQt5.QtBluetooth import QBluetoothDeviceDiscoveryAgent, QBluetoothSocket, QBluetoothAddress, \
-                               QBluetoothServiceInfo, QBluetoothUuid, QBluetoothDeviceInfo
 from Start import Ui_StartWindow
 from Manual import Ui_ManualWindow
 from Autonomous import Ui_AutoWindow
+from Bluetooth import Ui_Dialog
 import cv2
+import bluetooth
 
 
 class MainWindow(QMainWindow):
@@ -34,21 +34,26 @@ class MainWindow(QMainWindow):
         self.ui_auto = Ui_AutoWindow()
         self.ui_auto.setupUi(self.window_auto)
 
+        self.window_blue = QDialog()
+        self.ui_blue = Ui_Dialog()
+        self.ui_blue.setupUi(self.window_blue)
+        self.window_blue.setWindowTitle("Bluetooth List")
+
+        self.nearby_devices = bluetooth.discover_devices(lookup_names=True)
+        devices = ''
+        for address, name in self.nearby_devices:
+            devices = devices + f"Address: {address}, Name: {name}\n"
+        self.ui_blue.Bluetooth_list.setText(devices)
+        self.ui_blue.Device_chosen.setMaximum(len(self.nearby_devices))
+        self.is_bluetooth = True
+
         # Switching from Start Window to Manual or Autonomous Window according to push button clicked
         self.ui_start.manual_button.clicked.connect(self.open_manual)
         self.ui_start.auto_button.clicked.connect(self.open_auto)
 
-        # Create an instance of QBluetoothDeviceDiscoveryAgent to discover Bluetooth devices nearby
-        self.discovery_agent = QBluetoothDeviceDiscoveryAgent()
-        # deviceDiscovered Signal is connected to the microcontroller_discovered slot
-        # which is called whenever a new device is discovered
-        self.discovery_agent.deviceDiscovered.connect(self.microcontroller_discovered)
-        # Start the discovery process
-        self.discovery_agent.start()
-
         # Calling method that gives action to push buttons
         self.uibuttons()
-        """
+
         self.mutex = QMutex()
         self.thread = WebcamThread()
         self.thread.frame_data.connect(self.update_feed)
@@ -69,16 +74,7 @@ class MainWindow(QMainWindow):
         self.ui_manual.camera.pixmap()
         self.ui_auto.camera.pixmap()
         self.mutex.unlock()
-        """
 
-    def microcontroller_discovered(self, microcontroller_info):
-        # Retrieve information about the discovered device, such as name and address
-        self.microcontroller = microcontroller_info.device()
-        self.microcontroller_name = self.microcontroller.name()
-        self.microcontroller_address = self.microcontroller.address().toString()
-        # Check if discovered device matches microcontroller specific name and address
-        if self.microcontroller_name == "TWS4"  and self.microcontroller_address == "38:8F:30:F5:E4:02":
-            self.connect_to_microcontroller(self.microcontroller_address)
 
     """
     RFCOMM ( Radio Frequency Communication ) is a protocol that emulates a serial port connection
@@ -86,30 +82,23 @@ class MainWindow(QMainWindow):
     It enables the exchange of data between bluetooth devices as if they were connected through 
     a physical serial cable. 
     """
-    def connect_to_microcontroller(self, microcontroller_address):
-        # Create an instance of QBluetoothSocket with the RfcommProtocol
-        self.socket = QBluetoothSocket(QBluetoothServiceInfo.RfcommProtocol)
-        self.socket.connected.connect(self.microcontroller_connected)
-        self.socket.disconnected.connect(self.microcontroller_disconnected)
-        # Establish a connection with the microcontroller using the specified address and the SerialPortUUID
-        self.socket.connectToService(QBluetoothAddress(microcontroller_address), QBluetoothUuid.SerialPort)
 
+    """
     def microcontroller_connected(self):
-        self.socket = QBluetoothSocket(QBluetoothServiceInfo.RfcommProtocol)
-        self.socket.readyRead.connect(self.data_received)
-        """
+
+        
         self.device_connectivity = QBluetoothDeviceInfo()
-        rssi = self.device_connectivity.rssi() 
-        """
+        rssi = self.device_connectivity.rssi()
+        
         distance = self.ui_auto.set_distance.clicked.connect(self.get_distance)
         distance = 'D' + distance
         self.socket.write(distance.encode())
         speed = self.ui_auto.set_speed.clicked.connect(self.get_speed)
         speed = 'S' + speed
         self.socket.write(speed.encode())
-        """
+        
         Drive
-        """
+        
         if self.ui_manual.Park.clicked():
             status = 'S'
             self.socket.write(status.encode())
@@ -125,24 +114,8 @@ class MainWindow(QMainWindow):
         elif self.ui_manual.left_button.clicked():
             status = 'L'
             self.socket.write(status.encode())
-        """
-        RF
-        LF
-        RB
-        LB
-        """
-
-    def microcontroller_disconnected(self):
-        # Create an instance of QBluetoothDeviceDiscoveryAgent to discover Bluetooth devices nearby
-        self.discovery_agent = QBluetoothDeviceDiscoveryAgent()
-        # deviceDiscovered Signal is connected to the microcontroller_discovered slot
-        # which is called whenever a new device is discovered
-        self.discovery_agent.deviceDiscovered.connect(self.device_discovered)
-        # Start the discovery process
-        self.discovery_agent.start()
 
     def data_received(self):
-        self.socket = QBluetoothSocket(QBluetoothServiceInfo.RfcommProtocol)
         data = self.socket.readAll().data().decode()
         if data == "F":
             self.ui_manual.motion.setText("Forward")
@@ -171,15 +144,12 @@ class MainWindow(QMainWindow):
         elif data[0] == 'U':
             s = slice(1, len(data))
             self.ui_auto.ultrasonic.setText(data[s] + ' cm')
-        """
-        RF
-        LF
-        RB 
-        LB
-        """
+    """
 
     # Opening Manual Window
     def open_manual(self):
+        if self.is_bluetooth == True:
+            self.get_bluetooth()
         # Closing all unused Windows
         self.close()
         self.window_auto.close()
@@ -190,6 +160,8 @@ class MainWindow(QMainWindow):
 
     # Opening Autonomous Window
     def open_auto(self):
+        if self.is_bluetooth == True:
+            self.get_bluetooth()
         # Closing all unused Windows
         self.close()
         self.window_manual.close()
@@ -197,6 +169,81 @@ class MainWindow(QMainWindow):
         # Switching between Autonomous Window and Manual Window
         self.ui_auto.manual_button.clicked.connect(self.open_manual)
         self.window_auto.showMaximized()
+
+    def get_bluetooth(self):
+        self.window_blue.show()
+        self.ui_blue.buttonBox.clicked.connect(self.get_device_chosen)
+        self.is_bluetooth = False
+
+    def get_device_chosen(self):
+        num = self.ui_blue.Device_chosen.value()
+        address, name = self.nearby_devices[num-1]
+
+        self.server_socket = bluetooth.BluetoothSocket()
+        self.server_socket.connect((address, 5))
+        self.server_socket.listen(1)
+        self.client_socket, self.client_address = self.server_socket.accept()
+        print(f"Accepted connection from {self.client_address}")
+        self.data_receive()
+        self.data_send()
+
+    def data_receive(self):
+        data = self.client_socket.recv(1024)
+        if data:
+            received_data = data.decode("utf-8")
+            if received_data == "F":
+                self.ui_manual.motion.setText("Forward")
+                self.ui_auto.motion.setText("Forward")
+            elif received_data == "B":
+                self.ui_manual.motion.setText("Backward")
+                self.ui_auto.motion.setText("Backward")
+            elif received_data == "R":
+                self.ui_manual.motion.setText("Right")
+                self.ui_auto.motion.setText("Right")
+            elif received_data == "L":
+                self.ui_manual.motion.setText("Left")
+                self.ui_auto.motion.setText("Left")
+            elif received_data[0] == 'S':
+                s = slice(1, len(received_data))
+                self.ui_manual.speed.setText(received_data[s] + ' m/s')
+                self.ui_auto.speed.setText(received_data[s] + ' m/s')
+            elif received_data[0] == 'V':
+                s = slice(1, len(received_data))
+                self.ui_manual.voltage.setText(received_data[s] + ' V')
+                self.ui_auto.voltage.setText(received_data[s] + ' V')
+            elif received_data[0] == 'C':
+                s = slice(1, len(received_data))
+                self.ui_manual.current.setText(received_data[s] + ' A')
+                self.ui_auto.current.setText(received_data[s] + ' A')
+            elif received_data[0] == 'U':
+                s = slice(1, len(received_data))
+                self.ui_auto.ultrasonic.setText(received_data[s] + ' cm')
+
+    def data_send(self):
+        distance = self.ui_auto.set_distance.clicked.connect(self.get_distance)
+        distance = 'D' + distance
+        self.client_socket.send(distance.encode("utf-8"))
+        speed = self.ui_auto.set_speed.clicked.connect(self.get_speed)
+        speed = 'S' + speed
+        self.client_socket.send(speed.encode("utf-8"))
+        if self.ui_manual.Drive.clicked():
+            status = 'D'
+            self.client_socket.send(status.encode("utf-8"))
+        if self.ui_manual.Park.clicked():
+            status = 'S'
+            self.client_socket.send(status.encode("utf-8"))
+        if self.ui_manual.forward_button.clicked():
+            status = 'F'
+            self.client_socket.send(status.encode("utf-8"))
+        elif self.ui_manual.backward_button.clicked():
+            status = 'B'
+            self.client_socket.send(status.encode("utf-8"))
+        elif self.ui_manual.right_button.clicked():
+            status = 'R'
+            self.client_socket.send(status.encode("utf-8"))
+        elif self.ui_manual.left_button.clicked():
+            status = 'L'
+            self.client_socket.send(status.encode("utf-8"))
 
     # Giving Action to buttons
     def uibuttons(self):
@@ -226,7 +273,7 @@ class MainWindow(QMainWindow):
         # Return speed choose to be sent to ESP32 using Bluetooth
         return str(speed)
 
-"""
+
 class WebcamThread(QThread):
     frame_data = pyqtSignal(QImage)
 
@@ -245,7 +292,7 @@ class WebcamThread(QThread):
         if self.ui_manual.screenshot_button.clicked() or self.ui_auto.screenshot_button.clicked():
             image_q.save("Screenshot.jpg")
         capture.release()
-"""
+
 
 if __name__ == "__main__":
     app = QApplication([])
