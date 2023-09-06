@@ -55,13 +55,29 @@ void setup() {
 }
 
 void loop() {
-  if(Serial.available()){
-
-    if(Serial.read() == '')
-    
-    
-    }
+  digitalWrite(LED, HIGH);
   
+  Forward(255);
+  delay(3000);
+  
+  Stop();
+  delay(1000);
+  
+  Backward(255);
+  delay(3000);
+
+  Right(255);
+  delay(100);
+
+  Stop();
+  delay(1000);
+
+  Left(255);
+  delay(100);
+
+  Stop();
+  digitalWrite(LED, LOW);
+  delay(1000);
 }
 
 void Forward(int motorspeed2) {
@@ -141,7 +157,7 @@ int measureDistance() {
 }
 
 // Measure current using current sensors
-float measureCurrentA() {
+float Current() {
   int adc = analogRead(CURRENT_SENSE);
   float voltage = adc * 5/1023.0;
   float current = (voltage - 2.5) / 0.185;
@@ -149,7 +165,7 @@ float measureCurrentA() {
 }
 
 // Measure voltage using voltage sensors
-float measureVoltageA() {
+float Voltage() {
   float value = analogRead(VOLT_SENSE);
   //Since the arduino cannot handle greater than 5V we need to put a voltage divider to scale the input 
   //R1 , R2 are resistors of the voltage divider 
@@ -159,13 +175,64 @@ float measureVoltageA() {
 }
 
 // Send sensor data to the GUI via Bluetooth serial communication
-void sendSensorData(int distance, float currentA, float voltageA) {
-  String sensorData = "Distance: " + String(distance) + " cm\n";
-  sensorData += "Current (Motor A): " + String(currentA) + " A\n";
-  sensorData += "Voltage (Motor A): " + String(voltageA) + " V\n";
+/*void sendSensorData(int distance, float currentA, float voltage) {
+  Serial.print("V");
+  Serial.println(voltage);
   Serial.println(sensorData);
+}*/
+
+void Manual(char command) {  // Process commands received from the GUI
+  motorspeed =150;
+  while(command != 'E'){
+  switch (command){
+    case 'F':
+      Forward(motorspeed);
+      motorspeed = motorspeed + 20;
+      break;
+      
+    case 'B':
+      Backward(motorspeed);
+      motorspeed = motorspeed + 20;
+      break;
+      
+    case 'L':
+      Left(motorspeed);
+      motorspeed = motorspeed + 20;
+      break;
+      
+    case 'R':
+      Right(motorspeed);
+      motorspeed = motorspeed + 20;
+      break;
+      
+    case 'S':
+      Stop();
+      break;
+      
+    default:
+      break;
+  }
+}
 }
 
+void Autonomous(int distance2 , int velocity) 
+{
+  int error = desireddistance - distance2;
+  int correction = 0.5*error; // 0.5 is a propotional constant
+  int left_side = velocity + correction;
+  int right_side = velocity - correction;
+
+  left_side = constrain(left_side,0,255);
+  right_side = constrain(right_side,0,255);
+
+  digitalWrite(MOTOR_L_IN1_PIN, HIGH);
+  digitalWrite(MOTOR_L_IN2_PIN, LOW);
+  analogWrite(MOTOR_L_EN_PIN, left_side);
+
+  digitalWrite(MOTOR_R_IN1_PIN, HIGH);
+  digitalWrite(MOTOR_R_IN2_PIN, LOW);
+  analogWrite(MOTOR_R_EN_PIN, right_side);
+}
 /*             For testing
  *   digitalWrite(LED, HIGH);
   
