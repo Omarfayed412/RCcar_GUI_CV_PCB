@@ -91,6 +91,26 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QPushButton" name="Bluetooth">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>450</y>
+      <width>200</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Bluetooth</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
