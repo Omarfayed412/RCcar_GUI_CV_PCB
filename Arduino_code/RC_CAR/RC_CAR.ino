@@ -31,6 +31,7 @@ int motorspeed = 0;
 int desireddistance = 0;
 int desiredspeed = 0;
 int distance =0;
+char send ;
 
 void setup() {
   //Pin initiallization 
@@ -55,29 +56,30 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(LED, HIGH);
-  
-  Forward(255);
-  delay(3000);
-  
-  Stop();
-  delay(1000);
-  
-  Backward(255);
-  delay(3000);
 
-  Right(255);
-  delay(100);
+  if(Serial.available())
+  {
+    send = Serial.read();
+    if(send == 'M')
+    {
+      Manual(Serial.read());
+    }
+    else if (send == 'A')
+    {
+      Serial.print("enter distance :");
+      desireddistance = Serial.read();
+      Serial.print("enter velocity");
+      desiredspeed = Serial.read();
+      Autonomous(desireddistance , desiredspeed );
+    }
+  }
 
-  Stop();
-  delay(1000);
-
-  Left(255);
-  delay(100);
-
-  Stop();
-  digitalWrite(LED, LOW);
-  delay(1000);
+  Serial.print('V');
+  Serial.print(Voltage());
+  Serial.print('I');
+  Serial.print(Current());
+  Serial.print('D');
+  Serial.print(measureDistance());
 }
 
 void Forward(int motorspeed2) {
@@ -212,15 +214,22 @@ void Manual(char command) {  // Process commands received from the GUI
     default:
       break;
   }
+  RGB(motorspeed);
 }
 }
 
 void Autonomous(int distance2 , int velocity) 
 {
-  int error = desireddistance - distance2;
-  int correction = 0.5*error; // 0.5 is a propotional constant
-  int left_side = velocity + correction;
-  int right_side = velocity - correction;
+  int error;
+  int correction;
+  int left_side;
+  int right_side;
+  RGB(velocity);
+  while (distance2 != 0){
+   error = distance2 - measureDistance();
+   correction = 0.5*error; // 0.5 is a propotional constant
+   left_side = velocity + correction;
+   right_side = velocity - correction;
 
   left_side = constrain(left_side,0,255);
   right_side = constrain(right_side,0,255);
@@ -231,7 +240,24 @@ void Autonomous(int distance2 , int velocity)
 
   digitalWrite(MOTOR_R_IN1_PIN, HIGH);
   digitalWrite(MOTOR_R_IN2_PIN, LOW);
-  analogWrite(MOTOR_R_EN_PIN, right_side);
+  analogWrite(MOTOR_R_EN_PIN, right_side);  
+}
+}
+void RGB(int speed)
+{
+  if( speed < 150)
+  {
+    digitalWrite(RGB_R,HIGH);
+  }
+  else if ( speed > 150  && speed < 200)
+  {
+    digitalWrite(RGB_B,HIGH);
+  }
+  else if ( speed > 200 )
+  {
+    digitalWrite(RGB_G,HIGH);
+  }
+
 }
 /*             For testing
  *   digitalWrite(LED, HIGH);
